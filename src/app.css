@@ -1,0 +1,50 @@
+:root {
+    --purple: #8986CA;
+    --teal: #008C95;
+    --grey: #63666A;
+
+    --light-grey: rgb(210, 210, 210);
+
+    --dark-grey: rgb(100, 100, 100);
+
+    --nav-height: calc(1rem + 20px);
+    
+    --content-padding: 10vw
+}
+
+* {
+    font-family: 'Work Sans', sans-serif;
+    color: var(--dark-grey);
+    font-weight: 300;
+    letter-spacing: 1px;
+    box-sizing: border-box;
+}
+
+html {
+}
+
+body {
+    margin: 0;
+}
+
+:is(h1, h2, h3, h4, h5, h6, p) {
+    margin: 0;
+}
+
+a {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+}
+
+.purple {
+    color: var(--purple);
+}
+
+.teal {
+    color: var(--teal);
+}
+
+.grey {
+    color: var(--grey);
+}
