@@ -27,7 +27,7 @@
             <!-- svelte-ignore a11y-missing-content -->
             <a href="/journal/posts/gettingstartedchecklist" class="post-link">
                 <img class="post-img" src="/blogs/gettingstartedchecklist/HomeUnderConstruction.jpg" alt="">
-                <h4 class="post-header">Key Player Checklist to Get You Started Building or Renevating</h4>
+                <h4 class="post-header">Key Player Checklist to Get You Started Building or Renovating</h4>
             </a>
         </li>
     </ul>
