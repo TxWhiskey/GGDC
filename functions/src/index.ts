@@ -10,6 +10,23 @@ const cors = require('cors')({
     origin: true,
 });
 
+exports.submitSurvey = functions.https.onRequest( (req: functions.https.Request , res: functions.Response ) => {
+
+    cors( req, res, () => {
+
+        const surveyResponse = req.body.selection
+
+        admin.firestore().collection('surveyResponses').add({
+            surveyNumber: 12,
+            response: surveyResponse,
+            timestamp: admin.firestore.Timestamp.now()
+        }).then( r => res.send(r))
+
+    })
+
+
+})
+
 exports.handleFormSubmit = functions.https.onRequest( ( req: functions.https.Request , res: functions.Response) => {
 
     cors( req , res, () => {
@@ -71,21 +88,7 @@ exports.handleFormSubmit = functions.https.onRequest( ( req: functions.https.Req
             console.log("SUCCESS")
             return res.send(`Your contact form has been received. If you would like to get in touch faster, please reach out directly at 713.248.2987.`)
 
-        })        
-    })
-
-})
-
-exports.submitSurvey = functions.https.onRequest( (req: functions.https.Request , res: functions.Response ) => {
-
-    cors( req, res, () => {
-
-        const surveyResponse = req.body.selection
-
-        admin.firestore().collection('surveyResponses').add({
-            surveyNumber: 1,
-            response: surveyResponse
-        }).then( r => res.send(r))
+        })
 
     })
 

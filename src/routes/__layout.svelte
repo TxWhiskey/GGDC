@@ -36,7 +36,6 @@
             document.cookie = 'surveyComplete=false'
         }
 
-
         // @ts-ignore
         if (!cookieValues.surveyComplete === true) {
             setTimeout(function() {toggleSurvey()}, 5000)

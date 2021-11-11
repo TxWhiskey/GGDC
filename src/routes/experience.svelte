@@ -1,3 +1,18 @@
+<svelte:head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-212337181-1">
+    </script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-212337181-1');
+    </script>
+
+</svelte:head>
+
 <div class="experience-container">
 
     <h4 class="info-header" name="top">
@@ -13,7 +28,7 @@
         </p>
     </div>
     
-    <a href="https://georgiagracecollaboration.hbportal.co/schedule/6163b3aee4a11230f3e34a24" target="_blank" rel=external class="info-cta">Hire With Confidence</a>
+    <a href="https://georgiagracecollaboration.hbportal.co/schedule/6163b3aee4a11230f3e34a24" target="_blank" rel=external class="cta-btn cta-btn-min">Hire With Confidence</a>
 
     <div class="gallery">
         <div style="background-image: url('/images/home/kitchen-1.jpeg');" class="photo large"></div>

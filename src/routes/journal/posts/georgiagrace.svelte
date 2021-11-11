@@ -1,5 +1,16 @@
 <svelte:head>
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-212337181-1">
+    </script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-212337181-1');
+    </script>
+
     <script>
         (function(w, d, t, h, s, n) {
           w.FlodeskObject = n;
@@ -37,7 +48,7 @@
     <div class="row">
         <div class="col">
             <div class="media-controls">
-                <a href="/blogs/georgiagrace/GeorgiaGrace.pdf" class="media-download" download>PDF Download</a>
+                <a href="/blogs/georgiagrace/GeorgiaGrace.pdf" class="media-download" target="_blank">PDF Download</a>
                 <audio controls class='media-audio'>
                     <source src="/blogs/georgiagrace/GeorgiaGrace.mp3" type="audio/mpeg">
                 </audio>
@@ -255,7 +266,7 @@
 
     <div class="row">
         <div class="col">
-            <a href="https://georgiagracecollaboration.hbportal.co/schedule/6163b3aee4a11230f3e34a24" target="_blank" class="cta">
+            <a href="https://georgiagracecollaboration.hbportal.co/schedule/6163b3aee4a11230f3e34a24" target="_blank" class="cta-btn cta-btn-min">
                 Schedule A Discovery Call
             </a>
         </div>
@@ -342,8 +353,8 @@
     .blog-image-container-circle {
         display: inline-block;
         position: relative;
-        width: 400px;
-        height: 400px;
+        width: 300px;
+        height: 300px;
         overflow: hidden;
         border-radius: 50%;
         background-position: center;

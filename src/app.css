@@ -48,3 +48,26 @@ a {
 .grey {
     color: var(--grey);
 }
+
+
+.cta-btn {
+    border: 1px solid var(--light-grey);
+    background-color: var(--teal);
+    color: white;
+    padding: 1rem 2rem;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 400;
+    border-radius: 0%;
+    cursor: pointer;
+    text-align: center;
+}
+
+.cta-btn-min{
+    width: fit-content;
+}
+
+.cta-btn:hover {
+    background-color: var(--light-grey);
+    color: var(--dark-grey);
+}

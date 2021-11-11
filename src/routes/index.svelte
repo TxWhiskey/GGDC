@@ -1,3 +1,18 @@
+<svelte:head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-212337181-1">
+    </script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-212337181-1');
+    </script>
+
+</svelte:head>
+
 <section class="hero">
 
     <div class="hero-content">
@@ -49,9 +64,7 @@
             Georgia Grace Collaboration helps you make informed decisions during the construction of your home by analyzing options provided by your builder and design team. We ensure you find the right approach to every circumstance and scenario with a focus on protecting your investment.
         </p>
         
-        <a href="/capabilities">
-            <button class="info-cta">Guide Me</button>
-        </a>
+        <a class='cta-btn cta-btn-min' href="/capabilities">Guide Me</a>
     </div>
 
 </section>

@@ -1,3 +1,17 @@
+<svelte:head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-212337181-1">
+    </script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-212337181-1');
+    </script>
+
+</svelte:head>
 
 <div class="layout">
 
@@ -98,8 +112,8 @@
                 </ul>
             </div>
         </div>
-    </section>  
-    <button class="banner-cta">View Our Services & Pricing Guide</button>
+    </section>
+    <a href="/documents/Services%20&%20Pricing%20Guide.pdf" class="cta-btn cta-btn-min" target="_blank">View Our Services & Pricing Guide</a>
 
 </div>
 

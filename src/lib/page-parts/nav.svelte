@@ -33,6 +33,9 @@
             <a href="/experience" class="nav-link" class:active={$page.path === '/experience'} on:click={toggleNav}>Experience</a>
         </li>
         <li class="nav-item">
+            <a href="/journal" class="nav-link" class:active={$page.path === '/journal'} on:click={toggleNav}>Journal</a>
+        </li>
+        <li class="nav-item">
             <a href="/connect" class="nav-link" class:active={$page.path === '/connect'} on:click={toggleNav}>Let's Connect</a>
         </li>
     </ul>

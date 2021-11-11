@@ -22,7 +22,7 @@
       "enabled": true
     },
     "firestore": {
-      "port": 8091
+      "port": 8092
     }
   },
   "firestore": {
