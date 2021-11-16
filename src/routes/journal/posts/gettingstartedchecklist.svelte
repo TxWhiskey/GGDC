@@ -115,9 +115,6 @@
                     After you do your research, you can go through the pre-approval phase to see whether you’re eligible for the loan and what you need to do to get to the next step.
                 </p>
                 <p class="blog-text">
-                    So, finally, I was doing exactly what I loved and my clients were over the moon with my work too but there was still just one thing missing - I couldn’t be candid with my clients. 
-                </p>
-                <p class="blog-text">
                     It’s important to note that this is only the pre-approval stage; you will be able to fill out the actual loan application after you’ve worked out your architectural and structural plans that the housebuilder in Texas can use to provide a construction budget. You’ll have to submit this budget to the lending institution along with your loan application.
                 </p>                
                 <p class="blog-text">
