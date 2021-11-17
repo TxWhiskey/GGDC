@@ -1,4 +1,4 @@
-import { auth } from 'firebase-admin'
+import * as admin from 'firebase-admin'
 
 import '$lib/firebase/firebase-admin'
 
@@ -10,7 +10,7 @@ export async function post({ body }) {
 
     const expiresIn = 60 * 60 * 25 * 10 * 1000
 
-    return await auth()
+    return await admin.auth()
         .createSessionCookie( idToken, { expiresIn })
         .then( (sessionCookie) => {
             const options = { maxAge: expiresIn, httpOnly: true, secure: true, path:'/' }

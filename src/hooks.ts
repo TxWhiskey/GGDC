@@ -1,4 +1,4 @@
-import { auth } from 'firebase-admin'
+import admin from 'firebase-admin'
 
 import * as cookie from 'cookie'
 
@@ -14,7 +14,7 @@ export const handle = async ( { request, resolve } ) => {
 
         const sessionCookie = cookies.session || ''
 
-        await auth()
+        await admin.auth()
             .verifySessionCookie(sessionCookie, true)
             .then( (decodedClaims) => {
                 request.locals.user = decodedClaims

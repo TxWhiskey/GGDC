@@ -51,6 +51,9 @@
         <div class="col">
             <div class="media-controls">
                 <a href="/blogs/gettingstartedchecklist/GettingStartedChecklist.pdf" class="media-download" target="_blank">PDF Download</a>
+                <audio controls class='media-audio'>
+                    <source src="/blogs/gettingstartedchecklist/Blog2Audio.mp3" type="audio/mpeg">
+                </audio>
             </div>
         </div>
     </div>
@@ -186,7 +189,7 @@
                     <li class="blog-list-item">Submit for HOA approval and city or county permitting</li>
                     <li class="blog-list-item">Procure a tentative construction schedule</li>
                     <li class="blog-list-item">Work with both the architect and interior designer to review constructability design intent</li>
-                    <li class="blog-list-item">Coordinate with the interior design on prioritization of selections</li>
+                    <li class="blog-list-item">Coordinate with the interior designer on prioritization of selections</li>
                 </ul>
                 <p class="blog-text">
                     There is a lot more that a builder does but that falls in the actual construction phase. Custom home builders in Houston can charge $5,000-$10,000 separately for the pre-construction services.  This cost is usually applied to the construction cost if the builder is hired.
