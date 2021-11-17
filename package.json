@@ -21,6 +21,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@tsconfig/svelte": "^2.0.1",
     "cookie": "^0.4.1",
     "firebase": "^9.4.1",
     "firebase-admin": "^10.0.0",

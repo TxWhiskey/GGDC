@@ -1,11 +1,11 @@
 import { writable, get } from 'svelte/store'
 import { browser } from '$app/env'
+import { goto } from '$app/navigation'
 
-import { getAuth, signOut, onAuthStateChanged, signInWithEmailAndPassword } from '@firebase/auth'
-import type { User } from '@firebase/auth'
+import { getAuth, signOut, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth'
+import type { User } from 'firebase/auth'
 import '$lib/firebase/firebase'
 import { post } from '$lib/util'
-import { goto } from '$app/navigation'
 
 const auth = getAuth()
 

@@ -387,7 +387,7 @@
 
 <div id="fd-form-618323060b51fd1569c550a2" style="padding-top: 1rem;"></div>
 
-<script>
+<script lang='ts'>
 
     import { onMount } from 'svelte';
 
