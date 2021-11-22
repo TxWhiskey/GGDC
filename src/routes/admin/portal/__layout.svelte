@@ -10,7 +10,12 @@
 <nav class="navbar">
     <ul class="navbar-items">
         <li class="navbar-item">
-            Admin Portal
+            <a href="/admin/portal" class="navbar-link">
+                Admin Portal
+            </a>
+        </li>
+        <li class="navbar-item">
+            <a href="/admin/portal/journal" class="navbar-link">Journals</a>
         </li>
         <li class="navbar-item">
             {$session.user?.email}
@@ -38,7 +43,8 @@
         gap: 1rem;
     }
 
-    .navbar-item {
+    .navbar-link:hover {
+        color: var(--teal);
     }
 
 </style>

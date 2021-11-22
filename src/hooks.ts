@@ -14,6 +14,8 @@ export const handle = async ( { request, resolve } ) => {
 
         const sessionCookie = cookies.session || ''
 
+        console.log("Session Cookie:", sessionCookie)
+
         await admin.auth()
             .verifySessionCookie(sessionCookie, true)
             .then( (decodedClaims) => {

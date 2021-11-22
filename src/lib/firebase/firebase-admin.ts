@@ -21,3 +21,5 @@ function initApp() {
 } */
 
 admin.initializeApp()
+
+export const fbAdmin = admin
