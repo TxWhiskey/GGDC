@@ -1,30 +1,11 @@
-<script lang='ts'>
+<script lang='ts' context='module'>
 
-    import { session } from '$app/stores';
+    import { authGuard } from '$lib/auth/auth'
 
-    import { authState } from '$lib/firebase/authState'
+    /* export async function load({ session, page }) {
 
-    import { getAuth } from 'firebase/auth'
+        return authGuard( page.path, session )
 
-    let email = ''
-    let password = ''
-
-    function handleLogin() {
-        authState.loginWithEmail( email, password )
-        email = ''
-        password = ''
-    }
+    } */
 
 </script>
-
-<h1>Admin</h1>
-{#if $session.authenticated }
-    {$session.user.email}
-    <h2>Welcome</h2>
-    <button on:click={authState.logout}>Logout</button>
-{:else}
-    <h2>Login</h2>
-    <input type="text" placeholder="Email" bind:value={email}>
-    <input type="password" placeholder="Password" bind:value={password}>
-    <button on:click={handleLogin}>Login</button>
-{/if}

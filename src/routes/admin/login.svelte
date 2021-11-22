@@ -1,30 +1,49 @@
+<script context="module">
+
+    import { browser } from "$app/env";
+    import { get } from 'svelte/store'
+
+    /* export async function load({ session, page }) {
+
+        return authGuard( page.path, session )
+
+    } */
+
+</script>
+
 <script lang='ts'>
 
-    import { session } from '$app/stores';
 
-    import { authState } from '$lib/firebase/authState'
 
-    import { getAuth } from 'firebase/auth'
+    import { goto } from "$app/navigation";
 
-    let email = ''
-    let password = ''
+    import { authGuard, loginWithEmail } from '$lib/auth/auth'
 
-    function handleLogin() {
-        authState.loginWithEmail( email, password )
-        email = ''
-        password = ''
+    import { session } from '$app/stores'
+
+    let email = 'cameronryansims@gmail.com'
+    let password = 'Notime2die@'
+
+    async function handleLogin() {
+        
+        await loginWithEmail(email, password)
+        goto('/admin/portal')
+
+    }
+
+    async function handleLogout() {
+        $session = {user: null}
     }
 
 </script>
 
 <h1>Admin</h1>
-{#if $session.authenticated }
-    {$session.user.email}
-    <h2>Welcome</h2>
-    <button on:click={authState.logout}>Logout</button>
+<h2>Login</h2>
+{#if $session.user}
+    <button on:click={handleLogout}>Logout</button>
 {:else}
-    <h2>Login</h2>
     <input type="text" placeholder="Email" bind:value={email}>
     <input type="password" placeholder="Password" bind:value={password}>
     <button on:click={handleLogin}>Login</button>
 {/if}
+<a href="/admin/portal">Portal</a>
