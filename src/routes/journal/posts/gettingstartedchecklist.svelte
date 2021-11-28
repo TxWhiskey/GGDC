@@ -82,8 +82,8 @@
                 <p class="blog-text">
                     As a Home Building Consultant in Houston, always looking to make home buyers and renovators lives, that little bit easier, I’ve put together a full list of all the pivotal players you’ll come across before building or renovating your home:
                 </p>
-            </div>
 
+            </div>
         </div>
     </div>
 
