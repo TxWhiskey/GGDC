@@ -2,7 +2,7 @@ export interface JournalPost {
     id: string;
     title: string;
     published: boolean;
-    sections: Section[];
+    rows: Row[];
 }
 
 export interface Section {
@@ -23,10 +23,11 @@ export interface Column {
 export interface Item {
     id: string;
     type: string;
+    payload: any;
 }
 
 export interface TextItem extends Item {
-    paragraphs: TextItemParagraph[];
+    text: string;
 }
 
 export interface TextItemParagraph {
