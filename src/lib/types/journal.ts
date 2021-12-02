@@ -23,15 +23,13 @@ export interface Column {
 export interface Item {
     id: string;
     type: string;
-    content: any;
 }
 
-export interface TextSection {
-    id: string;
-    paragraphs: TextSectionParagraph[];
+export interface TextItem extends Item {
+    paragraphs: TextItemParagraph[];
 }
 
-export interface TextSectionParagraph {
+export interface TextItemParagraph {
     id: string;
     text: string;
 }

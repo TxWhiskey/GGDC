@@ -17,7 +17,7 @@
 
     import { goto } from "$app/navigation";
 
-    import { authGuard, loginWithEmail } from '$lib/auth/auth'
+    import { authGuard, loginWithEmail, getCookie, logout } from '$lib/auth/auth'
 
     import { session } from '$app/stores'
 
@@ -25,9 +25,27 @@
     let password = 'Notime2die@'
 
     async function handleLogin() {
-        
-        await loginWithEmail(email, password)
-        goto('/admin/portal')
+
+        try {
+            
+            var loginRes = await loginWithEmail(email, password)
+
+            if (loginRes.user) {
+
+                const cookieRes = await getCookie( loginRes.user)
+
+                if ( cookieRes.ok ) {
+                    session.set({user: loginRes.user})
+                    goto('/admin/portal')
+                } else {
+                    console.log("Signing Out of FB");          
+                    logout()
+                }
+
+            }
+        } catch (err) {
+            console.error("ERROR!!!",err);
+        }
 
     }
 

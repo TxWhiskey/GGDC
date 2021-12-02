@@ -1,7 +1,6 @@
 <script context='module' lang='ts'>
 
     import type { JournalPost, TextItem} from '$lib/types/journal'
-import { text } from 'svelte/internal';
 
     export async function load () {
             return {
@@ -81,29 +80,29 @@ import { text } from 'svelte/internal';
 <div class="post-editor">
 
     <!-- Sections -->
-    {#each postData.sections as section, index}
+    {#each postData.sections as section, si}
         <div class="section">
             <h3>Section: {section.id}</h3>
 
             <div class="section-content">
 
                 <!-- Rows -->
-                {#each section.rows as row, index}
+                {#each section.rows as row, ri}
 
-                <div class="row">
+                    <div class="row">
                         <h4>Row: {row.id}</h4>
 
                         <div class="row-content">
 
                             <!-- Columns -->
-                            {#each row.columns as column, index}
+                            {#each row.columns as column, ci}
             
                                 <div class="column">
 
-                                    <h4>Column</h4>
+                                    <h4>Column: {column.id}</h4>
 
                                     <div class="column-content">
-                                        <p>{column.id}</p>
+                                        <p>COLUMN ID</p>
                                         <p>CONTENT PLACEHOLDER</p>
                                         <p>CONTENT PLACEHOLDER</p>
                                         <p>CONTENT PLACEHOLDER</p>
@@ -133,9 +132,9 @@ import { text } from 'svelte/internal';
 
             <!-- Section Controls -->
             <div class="section-options">
-                <button class="section-option" on:click={() => addSection(index)}>Insert Above</button>
-                <button class="section-option" on:click={() => addSection(index + 1)}>Insert Below</button>
-                <button class="section-option" on:click={() => addSection(index + 1)}>Add Row</button>
+                <button class="section-option" on:click={() => addSection(si)}>Insert Above</button>
+                <button class="section-option" on:click={() => addSection(si + 1)}>Insert Below</button>
+                <button class="section-option" on:click={() => addSection(si + 1)}>Add Row</button>
             </div>
         </div>
 
@@ -206,9 +205,6 @@ import { text } from 'svelte/internal';
     }
 
     .column {
-        display: flex;
-        flex-flow: column nowrap;
-        align-content: stretch;
         background-color: darksalmon;
         flex: 1;
     }

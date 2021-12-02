@@ -32,6 +32,18 @@ export async function post( request ) {
         }
     }
 
+    const title = request.body.title
+    const body = request.body.body
+
+    if ( !title || ! body ) {
+        return {
+            status: 400,
+            body: {
+                message: "Must contain a title and body."
+            }
+        }
+    }
+
     const newPost = await admin.firestore().collection('Journals').doc().create({
         title: request.body.title,
         body: request.body.body

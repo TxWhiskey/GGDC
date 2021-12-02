@@ -9,31 +9,36 @@ import { goto } from '$app/navigation'
 
 const auth = getAuth()
 
-async function getCookie( user: User) {
+export async function getCookie( user: User) {
     
     const idToken = await user.getIdToken(false)
 
-    try {
-        await post( '/auth/getCookie', {idToken: idToken})
-    } catch (err) {
-        return err
-    }
+    //return post( '/auth/getCookie', {idToken: idToken})
+
+    return fetch( '/auth/getCookie', {
+        method: 'POST',
+        credentials: 'include',
+        body: JSON.stringify( {idToken} || {} ),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
 
 }
 
 export async function loginWithEmail( email: string, password: string ) {
 
-    try {
+    return signInWithEmailAndPassword( auth, email, password )/* .then( async userCredential => {
 
-        const userCredential = await signInWithEmailAndPassword( auth, email, password )
+        await getCookie( userCredential.user )
 
-        await getCookie( userCredential.user)
+        return userCredential
 
-        session.set( { user: userCredential.user } )
-
-    } catch (err) {
+    }) *//* .then( userCredential => {
+        session.set( { user: userCredential.user })
+    } ).catch( (err) => {
         return err
-    }
+    }) */
 
 }
 

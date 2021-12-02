@@ -52,11 +52,13 @@
     {/each}
 </ul>
 
-<form on:submit|preventDefault={createNewPost} class="form">
+<!-- <form on:submit|preventDefault={createNewPost} class="form">
     <input type="text" bind:value={newPostTitle}>
     <textarea type="text" bind:value={newPostBody}/>
     <button type="submit">Create New Post</button>
-</form>
+</form> -->
+
+<a href="/admin/portal/journal/edit/new" class="link-btn">Create New Post</a>
 
 <style>
 
@@ -65,5 +67,11 @@
         flex-flow: column nowrap;
         gap: .5rem;
         padding: 1rem;
+    }
+
+    .link-btn {
+        color: white;
+        background-color: var(--teal);
+        padding: .5rem;
     }
 </style>

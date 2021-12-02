@@ -18,102 +18,122 @@
     
     <section class="about-info">
         <img src="/images/GG-Stacked.svg" alt="" class="gg-logo" style="margin-bottom: 1em;">
-        <!-- <p class="about bio-h3">
-            Lost in the construction process? Here's what we can do for you.
-        </p> -->
+        <p class="about bio-h4">
+            Advocating for homeowners during the homebuilding process, and upscaling homebuilders to better serve my clients.
+        </p>
         
     </section>
 
     <section class="about-pat">
 
-        <div class="bio">
-            <div class="bio__header">
-                <div class="bio__media bio-media-alt">
-                    <img src="/images/home/exterior.jpg" alt="" class="bio__img">
+        <div class="column">
+            <div class="bio">
+                <div class="bio__header">
+                    <div class="bio__media bio-media-alt">
+                        <img src="/images/home/exterior.jpg" alt="" class="bio__img">
+                    </div>
+                    <div class="bio-title bio-title-alt">
+                        <h3 class="bio-h3">Representing</h3>
+                        <h3 class="bio-h3">Homeowners</h3>
+                        <!-- <h4 class="bio-h4 left">Customizable</h4> -->
+                    </div>
                 </div>
-                <div class="bio-title bio-title-alt">
-                    <h3 class="bio-h3">Full Service</h3>
-                    <h4 class="bio-h4 left">Customizable</h4>
+                <div class="bio__main">
+                    <ul class="services">
+                        <li class="service">
+                            <h5 class="service-prompt">
+                                Are you thinking of building a home or renovating one? Don't know where to start?
+                            </h5>
+                            <p class="service-response">
+                                Let us generate a preliminary scope of work for your dream home. This will allow your builders to provide a comprehensive and competitive bid.
+                            </p>
+                        </li>
+                        <li class="service">
+                            <h5 class="service-prompt">
+                                Are you worried about choosing the wrong builder? Need help finding the right one?
+                            </h5>
+                            <p class="service-response">
+                                We can do the legwork by reaching out to qualified experts that can execute your vision. This includes reviewing and analyzing their bids.
+                            </p>
+                        </li>
+                        <li class="service">
+                            <h5 class="service-prompt">
+                                Wishing you had an experienced ally join you for meetings with specialists to ask the right questions?
+                            </h5>
+                            <p class="service-response">
+                                We are familiar with all the ins and outs of the building process. When you bring us on board, we ask the questions you haven’t thought of. Diligence during pre-construction means reduced costs later.
+                            </p>
+                        </li>
+                        <li class="service">
+                            <h5 class="service-prompt">
+                                Concerned about reviewing hundreds upon hundreds contractor invoices?
+                            </h5>
+                            <p class="service-response">
+                                Let us take that load off your shoulders. We ensure your invoices are in line with jobsite progress and alert you of any discrepancies. 
+                            </p>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="bio__main">
-                <ul class="services">
-                    <li class="service">
-                        <h5 class="service-prompt">Don't know where to start?</h5>
-                        <p class="service-response">
-                            Let us generate a preliminary scope of work for your dream home. This will allow your builders to provide a comprehensive and competitive bid.
-                        </p>
-                    </li>
-                    <li class="service correction-1">
-                        <h5 class="service-prompt">Need help finding the right home builder?</h5>
-                        <p class="service-response">
-                            We can do the legwork by reaching out to qualified experts that can execute your vision. This includes reviewing and analyzing their bids.
-                        </p>
-                    </li>
-                    <li class="service">
-                        <h5 class="service-prompt">Wishing you had an experienced ally to join you for your meetings with specialists and ask all the right questions?</h5>
-                        <p class="service-response">
-                            We are familiar with all the ins and outs of the building process. Diligence during pre-construction means reduced costs later.
-                        </p>
-                    </li>
-                    <li class="service">
-                        <h5 class="service-prompt">Reviewing invoices for your project can be overwhelming, especially if you are not used to the construction terms. Need a hand?</h5>
-                        <p class="service-response">
-                            It would be our pleasure to take that load off your shoulders. We ensure your invoices are in line with jobsite progress, and alert you of any discrepancies.
-                        </p>
-                    </li>
-                </ul>
-            </div>
+
+            <a href="/documents/Services%20&%20Pricing%20Guide%20for%20Homeowners.pdf" class="cta-btn cta-btn-min" target="_blank">Homeowner Representation <br/>Services & Pricing Guide</a>
+
         </div>
         
-        <div class="bio">
-            <div class="bio__header">
-                <div class="bio__media">
-                    <img src="/images/home/stairs.jpeg" alt="" class="bio__img">
+        <div class="column">
+            <div class="bio">
+                <div class="bio__header">
+                    <div class="bio__media">
+                        <img src="/images/home/stairs.jpeg" alt="" class="bio__img">
+                    </div>
+                    <div class="bio-title">
+                        <h3 class="bio-h3">Upscaling</h3>
+                        <h3 class="bio-h3">Homebuilders</h3>
+                        <!-- <h4 class="bio-h4 right">Services & Add-Ons</h4> -->
+                    </div>
                 </div>
-                <div class="bio-title">
-                    <h3 class="bio-h3">A-La-Carte</h3>
-                    <h4 class="bio-h4 right">Services & Add-Ons</h4>
+                <div class="bio__main">
+                    <ul class="services">
+                        <li class="service">
+                            <h5 class="service-prompt">
+                                Do your prospective client's receive a well thought out document explaining your value?
+                            </h5>
+                            <p class="service-response">
+                                Collaboratively, we can create sales collateral that helps homeowners better understand the framework of your company.
+                            </p>
+                        </li>
+                        <li class="service">
+                            <h5 class="service-prompt">
+                                Is your company consistent in the way it presents daily correspondence?
+                            </h5>
+                            <p class="service-response">
+                                We will create templates for your team to use on a daily basis to bring consistency to your day-to-day form of communicating.
+                            </p>
+                        </li>
+                        <li class="service">
+                            <h5 class="service-prompt">
+                                Are you often re-inventing the wheel because there is no established process?
+                            </h5>
+                            <p class="service-response">
+                                We will work with your team to document the necessary steps to follow for common processes. This again, will bring consistency, and clarity on what should be happening on each project, from preconstruction to completion.
+                            </p>
+                        </li>
+                        <li class="service">
+                            <h5 class="service-prompt">
+                                Is your online presence lacking in this day and age?
+                            </h5>
+                            <p class="service-response">
+                                Let us work with you and a team of experts to cohesively showcase what your company offers homeowners looking to hire the right builder for their home construction.
+                            </p>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="bio__main">
-                <ul class="services">
-                    <li class="service">
-                        <h5 class="service-prompt">
-                            Can’t afford the full-service package?
-                        </h5>
-                        <p class="service-response">
-                            Don’t fret—we can still help you with any of our services à la carte to ensure your project does not go without a second opinion or the proper due diligence.
-                        </p>
-                    </li>
-                    <li class="service">
-                        <h5 class="service-prompt">
-                            Do you want to double check some of the quantities your builder or subcontractor has given you?
-                        </h5>
-                        <p class="service-response">
-                            Send over your drawings and we’ll take care of that for you.  It doesn’t hurt to double check someone’s takeoff.</p>
-                    </li>
-                    <li class="service">
-                        <h5 class="service-prompt">
-                            Want to do a minor renovation that doesn’t require a builder? Need to know what all your project entails?
-                        </h5>
-                        <p class="service-response">
-                            We can help you determine what your scope of work is and what your agreement with specialists should include.
-                        </p>
-                    </li>
-                    <li class="service">
-                        <h5 class="service-prompt">
-                            Is everything going according to plan at your jobsite? Do you wonder if you are missing anything?
-                        </h5>
-                        <p class="service-response">
-                            When you are in the thick of it, it is hard to catch the small details that might not surface until your contractors are long gone. Bring us along as a second set of eyes.
-                        </p>
-                    </li>
-                </ul>
-            </div>
+        
+            <a href="/documents/Services & Pricing Guide for Builders.pdf" class="cta-btn cta-btn-min" target="_blank">Homebuilder Upscaling <br/>Services & Pricing Guide</a>
+        
         </div>
     </section>
-    <a href="/documents/Services%20&%20Pricing%20Guide.pdf" class="cta-btn cta-btn-min" target="_blank">View Our Services & Pricing Guide</a>
 
 </div>
 
@@ -133,6 +153,11 @@
 
     .gg-logo {
         max-width: 200px;
+    }
+
+    .about {
+        max-width: 800px;
+        text-align: center;
     }
 
     .about-info {
@@ -198,6 +223,14 @@
         flex-flow: row wrap;
         justify-content: space-between;
         gap: 2em;
+    }
+
+    .column {
+        flex: 1;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 2em;
+        align-items: center;
     }
 
     .bio {
@@ -276,6 +309,7 @@
         width: 100%;
         padding-bottom:  .5em;
         margin-bottom: 0;
+        font-size: x-large;
     }
 
     .left::after {
