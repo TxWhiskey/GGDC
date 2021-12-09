@@ -3,6 +3,7 @@ export interface JournalPost {
     title: string;
     published: boolean;
     rows: Row[];
+    pdfUrl: string;
 }
 
 export interface Section {
@@ -33,4 +34,11 @@ export interface TextItem extends Item {
 export interface TextItemParagraph {
     id: string;
     text: string;
+}
+
+export interface ImageItemPayload {
+    imageUrl: string;
+    imageTitle: string;
+    maxWidth: number;
+    maxHeight: number;
 }

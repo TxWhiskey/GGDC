@@ -19,15 +19,22 @@
         <li class="journal-post">
             <!-- svelte-ignore a11y-missing-content -->
             <a href="/journal/posts/georgiagrace" class="post-link">
-                <img class="post-img" src="/images/home/exterior-construction-2.jpg" alt="">
+                <div class="post-image" style="background-image: url(/images/home/exterior-construction-2.jpg)"></div>
                 <h4 class="post-header">Connecting Homeowners With The Best Custom Home Builders</h4>
             </a>
         </li>
         <li class="journal-post">
             <!-- svelte-ignore a11y-missing-content -->
             <a href="/journal/posts/gettingstartedchecklist" class="post-link">
-                <img class="post-img" src="/blogs/gettingstartedchecklist/HomeUnderConstruction.jpg" alt="">
+                <div class="post-image" style="background-image: url(/blogs/gettingstartedchecklist/HomeUnderConstruction.jpg)"></div>
                 <h4 class="post-header">Key Player Checklist to Get You Started Building or Renovating</h4>
+            </a>
+        </li>
+        <li class="journal-post">
+            <!-- svelte-ignore a11y-missing-content -->
+            <a href="/journal/posts/firstimpressions" class="post-link">
+                <div class="post-image" style="background-image: url(/blogs/firstimpressions/DSC07350.png)"></div>
+                <h4 class="post-header">First Impression is the Last Impression</h4>
             </a>
         </li>
     </ul>
@@ -57,22 +64,28 @@
         display: flex;
         flex-flow: row wrap;
         gap: 2rem;
+        align-items: stretch;
     }
 
     .journal-post {
+        flex: 1;
         text-decoration: none;
-        display: flex;
-        flex-flow: column nowrap;
-        gap: 1rem;
         max-width: 500px;
     }
 
     .post-link {
-        display: flex;
-        flex-flow: row wrap;
-        gap: 1rem;
         border: thin solid var(--light-grey);
         padding: 1rem;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: .5rem;
+        height: 100%;
+    }
+
+    .post-image {
+        background-position: center;
+        background-size: cover;
+        height: 300px;
     }
 
     .post-img {

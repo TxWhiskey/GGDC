@@ -1,10 +1,5 @@
 <script context='module' lang='ts'>
 
-    import type { JournalPost, Item} from '$lib/types/journal'
-
-    import ItemText from '$lib/page-parts/journal/item-text.svelte';
-    
-
     export async function load () {
             return {
                 /* props: {
@@ -17,82 +12,24 @@
 
 <script lang='ts'>
 
-    import Editor from '$lib/page-parts/journal/editor.svelte';
+    import ItemConfig from '$lib/page-parts/journal/editor/item-config.svelte';
+    import ItemTypeList from '$lib/page-parts/journal/editor/item-type-list.svelte';
+    import ColumnEdit from '$lib/page-parts/journal/editor/column-edit.svelte';
 
-    import { v4 as uuid } from 'uuid'
+    import { editorStore } from '$lib/page-parts/journal/editor/editorStore'
+    import { postData } from '$lib/test-data/newPost'
 
-    const textItem: Item = {
-        id: uuid(),
-        type: 'Text',
-        payload: "Aliqua in laboris aliqua enim minim adipisicing dolor sunt Lorem cillum nisi laborum laborum. Officia Lorem voluptate enim magna occaecat consectetur sint reprehenderit Lorem voluptate adipisicing id. Sunt occaecat eiusmod ullamco voluptate enim minim cillum eu magna fugiat ea. Sunt aliquip sint anim incididunt elit labore ad occaecat. Laboris Lorem mollit do veniam ex officia. Ad incididunt labore magna ad minim velit voluptate. Enim duis laborum Lorem nulla fugiat enim proident ipsum ipsum esse ipsum quis. Excepteur officia est duis reprehenderit ullamco eu. Aliqua eiusmod ad et sit exercitation ad ut duis do labore laborum. Esse occaecat nostrud ullamco adipisicing sint magna excepteur quis dolore cillum tempor et irure enim. Aliqua nisi ullamco incididunt aliqua consequat incididunt minim sunt. Ut sit culpa commodo incididunt pariatur do veniam eiusmod exercitation Lorem tempor sit id eu. Deserunt officia Lorem eiusmod voluptate reprehenderit do nulla nostrud dolor laborum consequat dolore elit mollit. Est enim exercitation veniam pariatur dolore sunt eiusmod adipisicing laboris nulla ullamco amet reprehenderit."
-    }
+    const itemTypes = [
+        'Text',
+        'Image'
+    ]
 
-    export let postData: JournalPost = {
-        id: uuid(),
-        published: false,
-        rows: [
-            {
-                id: uuid(),
-                columns: [
-                    {
-                        id: uuid(),
-                        items: [
-                            textItem
-                        ]
-                    },{
-                        id: uuid(),
-                        items: [
-                            textItem
-                        ]
-                    }
-                ]
-            },
-            {
-                id: uuid(),
-                columns: [
-                    {
-                        id: uuid(),
-                        items: [
-                            textItem
-                        ]
-                    },{
-                        id: uuid(),
-                        items: []
-                    }
-                ]
-            },
-            {
-                id: uuid(),
-                columns: [
-                    {
-                        id: uuid(),
-                        items: [
-                            textItem
-                        ]
-                    },{
-                        id: uuid(),
-                        items: []
-                    }
-                ]
-            }
-        ],
-        title: "New Blog Post"
-    }
-
-    let editing = false
-    let selected = null
-
-    function setSelection( rowIndex: number, columnIndex: number, itemIndex: number ) {
-
-        let selectedItem = postData.rows[rowIndex].columns[columnIndex].items[itemIndex]
-
-    }
+    editorStore.initStore( postData )
 
 </script>
 
 <div class="grid">
 
-    
     <div class="journal-heading">
         <ul class="heading-list">
             <li class="heading-list-item">
@@ -104,15 +41,21 @@
             <li class="heading-list-item">
                 <button>Publish</button>
             </li>
+            <li class="heading-list-item">
+                <p>PDF:</p>
+                <input type="file">
+            </li>
         </ul>
     </div>
 
     <div class="post-editor">
 
+        {#if $editorStore.postData.rows}
+
         <div class="rows">
 
             <!-- Rows -->
-            {#each postData.rows as row, ri}
+            {#each $editorStore.postData.rows as row, ri}
 
                 <div class="row">
 
@@ -121,37 +64,39 @@
                         <!-- Columns -->
                         {#each row.columns as column, ci}
 
-                            <div class="column" on:click={() => editing = !editing}>
+                            <ColumnEdit rowId={row.id} columnId={column.id} column={column}/>
 
-                                <div class="column-content">
-                                    
-                                    {#each column.items as item, ii}
-    
-                                        <ItemText payload={item.payload}/>
-    
-                                    {/each}
-    
-                                </div>
-    
-                                <!-- Column Controls -->
-                                <div class="column-options">
-                                    <button class="column-option">Add Item</button>
-                                    <button class="column-option">Move Left</button>
-                                    <button class="column-option">Move Right</button>
-                                </div>
-    
-                            </div>
-        
                         {/each}
-        
+
                     </div>
-        
+
                     <!-- Row Controls -->
                     <div class="row-options">
-                        <button class="row-option">Add Column</button>
-                        <button class="row-option">Move Up</button>
-                        <button class="row-option">Move Down</button>
-                        <button class="row-option">Delete</button>
+                        <span class="row-title">Row</span>
+                        <!-- Add Column to Row -->
+                        <button class="row-option" on:click={() => editorStore.addColumn(row.id)} title="Add Columnt to Row">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                            </svg>
+                        </button>
+                        <!-- Move Row Up -->
+                        <button class="row-option" on:click={ () => editorStore.moveRowUp(row.id)} title="Move Row Up">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z"/>
+                            </svg>
+                        </button>
+                        <!-- Move Row Down -->
+                        <button class="row-option" on:click={ () => editorStore.moveRowDown(row.id)} title="Move Row Down">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-short" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4z"/>
+                            </svg>
+                        </button>
+                        <!-- Delete Row -->
+                        <button class="row-option" on:click={ () => editorStore.deleteRow(row.id)} title="Delete Row">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </button>
                     </div>
 
                 </div>
@@ -160,14 +105,17 @@
 
         </div>
 
+        {/if}
+
+        <button class="add-row" on:click={editorStore.addRow}>Add Row</button>
+
     </div>
 
-    {#if editing}
-    <Editor></Editor>
+    {#if $editorStore.editing}
+        <ItemConfig/>
     {/if}
 
 </div>
-
 
 <style>
 
@@ -191,6 +139,13 @@
         list-style-type: none;
     }
 
+    .heading-list-item {
+        display: flex;
+        flex-direction: row;
+        gap: .5rem;
+        align-items: center;
+    }
+
     .post-editor {
         display: flex;
         flex-flow: column nowrap;
@@ -202,11 +157,22 @@
         display: flex;
         flex-flow: column nowrap;
         gap: 1rem;
+        padding: 1rem 0;
+        width: 100%;
+        max-width: 1000px;
+        align-self: center;
     }
 
     .row {
-        background-color: cadetblue;
-        padding: 0 1rem;
+        /* background-color: cadetblue; */
+        position: relative;
+        min-height: 3rem;
+    }
+
+    .row:hover {
+        /* border-top: thin dotted rgb(225, 225, 225);
+        border-bottom: thin dotted rgb(225, 225, 225); */
+        box-shadow: 0 0 2px rgba(0, 0, 0, 0.174);
     }
 
     .row-content {
@@ -215,16 +181,42 @@
         gap: 1rem;
     }
 
-    .column {
-        background-color: darksalmon;
-        flex: 1;
-        cursor: pointer;
+    .row-title {
+        color: white;
     }
 
-    .column-content {
+    .row-options {
+        position: absolute;
+        right: .5rem;
+        top: .5rem;
+        padding: .25rem;
+        background-color: var(--grey);
+        border-radius: 3px;
+        display: none;
+        box-shadow: 0 0 2px rgba(28, 28, 28, 0.6);
+        flex-flow: row nowrap;
+        align-items: center;
+        gap: .5rem;
+    }
+
+    .row:hover .row-options {
         display: flex;
-        flex-flow: column nowrap;
-        gap: 1rem;
+    }
+
+    .row-option {
+        padding: 0;
+    }
+
+    svg {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .add-row {
+        color: white;
+        background-color: var(--teal);
+        border: none;
+        padding: .5rem;
     }
 
 </style>
