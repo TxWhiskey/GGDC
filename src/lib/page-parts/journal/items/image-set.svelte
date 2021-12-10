@@ -62,7 +62,6 @@
     
             await uploadBytes( fileRef, file, metadata).then( async (snapshot) => {
                 await getDownloadURL( snapshot.ref ).then( (url) => {
-                    
                     const newPayload:ImageItemPayload = {
                         imageTitle: snapshot.ref.name,
                         imageUrl: url,
