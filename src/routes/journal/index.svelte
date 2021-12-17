@@ -37,6 +37,13 @@
                 <h4 class="post-header">First Impression is the Last Impression</h4>
             </a>
         </li>
+        <li class="journal-post">
+            <!-- svelte-ignore a11y-missing-content -->
+            <a href="/journal/posts/lessonslearned" class="post-link">
+                <div class="post-image" style="background-image: url(/blogs/lessonslearned/Truss.JPG)"></div>
+                <h4 class="post-header">One Homeowner’s Lessons Learned </h4>
+            </a>
+        </li>
     </ul>
 </div>
 
@@ -49,7 +56,9 @@
         flex-direction: column;
         gap: 2rem;
         align-items: center;
+        justify-content: center;
         margin-bottom: 1rem;
+        padding: 0 1rem;
     }
 
     .page-heading {
@@ -61,16 +70,15 @@
         list-style-type: none;
         padding: 0;
         margin: 0;
-        display: flex;
-        flex-flow: row wrap;
-        gap: 2rem;
-        align-items: stretch;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 16px;
+        justify-content: center;
+
     }
 
     .journal-post {
-        flex: 1;
         text-decoration: none;
-        max-width: 500px;
     }
 
     .post-link {

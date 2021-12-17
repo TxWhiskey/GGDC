@@ -1,4 +1,4 @@
-<script context='module' lang="ts">
+<!-- <script context='module' lang="ts">
 
     export async function load( {session, fetch} ) {
 
@@ -50,7 +50,7 @@
         <li>{post.title}</li>
     
     {/each}
-</ul>
+</ul> -->
 
 <!-- <form on:submit|preventDefault={createNewPost} class="form">
     <input type="text" bind:value={newPostTitle}>

@@ -18,18 +18,18 @@ export async function get() {
 
 export async function post( request ) {
     
-    if ( !request.locals.authenticated ) {
+    /* if ( !request.locals.authenticated ) {
         return {
             status: 403,
             body: {
                 message: "Unauthenticated"
             }
         }
-    }
+    } */
 
     const title: string = request.body.title
     const url: string[] = request.body.url
-    const path: Path = request.body.path
+    const path = request.body.path
 
     if ( !title || ! url || !path ) {
         return {
@@ -40,10 +40,22 @@ export async function post( request ) {
         }
     }
 
-    const pathString = ''
+    let pathArray: string[] = path.split("/")
 
-    for ( let currentPath = path; currentPath.child; currentPath = currentPath.child) {
+    pathArray = pathArray.filter( p => p? true: false)
 
+    await admin.firestore().collection('Folders').doc("Media Library/" + path).set({
+        title,
+        url
+    })
+
+    pathArray.forEach( p => console.log(p))
+
+    return {
+        status: 200,
+        body: {
+            message: "done"
+        }
     }
 
 }

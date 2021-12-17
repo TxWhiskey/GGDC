@@ -1,6 +1,5 @@
 import '$lib/firebase/firebase'
 
-import { post } from "$lib/util"
 import { signInWithEmailAndPassword, getAuth, signOut } from "@firebase/auth"
 import type { User  } from 'firebase/auth'
 

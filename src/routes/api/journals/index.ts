@@ -2,9 +2,11 @@ import type { ServerRequest } from "@sveltejs/kit/types/hooks";
 import * as admin from 'firebase-admin'
 import '$lib/firebase/firebase-admin'
 
-export async function get( request ) {
+export async function get() {
 
-    const journalsRef = admin.firestore().collection('Journals')
+    var db = admin.firestore()
+
+    const journalsRef = db.collection('Journals')
 
     const journals = await journalsRef.get().then( querySnapshot => {
         return querySnapshot.docs.map( doc => doc.data())

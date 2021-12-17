@@ -49,8 +49,15 @@
 
     async function uploadImage() {
 
+        await fetch( '/api/photos', {
+            method: "POST",
+            body: JSON.stringify({
+                url: 'TEST'
+            })
+        })
+
         
-        if ( inputFiles ) {
+        /* if ( inputFiles ) {
 
             uploadingImage = true
 
@@ -75,7 +82,7 @@
 
             uploadingImage = false
 
-        }
+        } */
 
 
     }
