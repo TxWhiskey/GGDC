@@ -47,7 +47,6 @@
 <script lang="ts">
 
     import { app, auth } from '$lib/firebase/firebase'
-    import { getAuth } from 'firebase/auth'
     import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 
     import Spinner from '$lib/page-parts/spinner.svelte'
@@ -60,6 +59,7 @@
 
         let showCreateNewFolder = false
         let createNewFolderTitle = null
+        let folderLoading = false
 
         let showUploadFile = false
         let createNewFileTitle = null
@@ -69,6 +69,11 @@
         // Folder Navigation
 
             async function returnToRoot() {
+
+                folderStructure.path = []
+
+                folderStructure = folderStructure
+                folderLoading = true
 
                 let requestInit = {
                     method: "POST",
@@ -82,13 +87,21 @@
 
                 folderStructure = await res.json()
 
+                folderLoading = false
+
             }
 
-            async function handleBreadcrumbClick( index: number ) {
+            async function goToFolder( index: number ) {
 
                 let pathIds: string[] = folderStructure.path.map( p => p.id )
 
                 pathIds.splice( index + 1 , pathIds.length )
+
+                folderStructure.path.splice( index + 1, folderStructure.path.length)
+
+                folderStructure = folderStructure
+
+                folderLoading = true
 
                 const res = await fetch( '/api/files', {
                     method: "POST",
@@ -104,9 +117,13 @@
 
                 selectedFileId = null
 
+                folderLoading = false
+
             }
 
             async function handleFolderClick( folderId: string) {
+
+                folderLoading = true
 
                 const pathIds: string[] = [ ...folderStructure.path.map( p => p.id), folderId]
 
@@ -123,6 +140,8 @@
                 folderStructure = await res.json()
 
                 selectedFileId = null
+
+                folderLoading = false
 
             }
 
@@ -183,6 +202,8 @@
 
                     const pathIds: string[] = folderStructure.path.map( p => p.id )
 
+                    const title = createNewFileTitle || file.name;
+
                     const res = await fetch( '/api/files/create/file', {
                         method: "POST",
                         headers: {
@@ -190,7 +211,7 @@
                         },
                         body: JSON.stringify({
                             path: pathIds,
-                            title: createNewFileTitle || file.name,
+                            title: title,
                             url: url,
                             type: fileType
                         })
@@ -214,67 +235,106 @@
 
         }
 
+    // Deletion
+
+        async function deleteFileOrFolder( targetId: string) {
+
+            console.log(folderStructure);
+            console.log(targetId);
+            
+
+            const res = await fetch( '/api/files/delete/' + targetId, { method: "DELETE" })
+
+            if ( res.ok ) {
+
+                console.log('Delete Success');
+
+                const body = await res.json()
+
+                if ( body.type == 'File' ) {
+
+                    const fileIndex = folderStructure.files.findIndex( file => file.id == body.targetId)
+
+                    folderStructure.files.splice(fileIndex, 1)
+
+                    folderStructure = folderStructure
+
+                }
+
+                if ( body.type == 'Folder' ) {
+
+                    folderStructure.path.pop()
+
+                    goToFolder( folderStructure.path.length - 1 )
+
+                }
+                
+            }
+
+        }
+
 </script>
 
 <div class="container">
 
     <h1>File Testing</h1>
-
-    <!-- Folder Controls -->
-    <div class="container-row folder-controls">
-
-        <!-- Create Folder -->
-        <button on:click={ () => showCreateNewFolder = true} class="folder-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-folder-plus" viewBox="0 0 16 16">
-                <path d="m.5 3 .04.87a1.99 1.99 0 0 0-.342 1.311l.637 7A2 2 0 0 0 2.826 14H9v-1H2.826a1 1 0 0 1-.995-.91l-.637-7A1 1 0 0 1 2.19 4h11.62a1 1 0 0 1 .996 1.09L14.54 8h1.005l.256-2.819A2 2 0 0 0 13.81 3H9.828a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 6.172 1H2.5a2 2 0 0 0-2 2zm5.672-1a1 1 0 0 1 .707.293L7.586 3H2.19c-.24 0-.47.042-.683.12L1.5 2.98a1 1 0 0 1 1-.98h3.672z"/>
-                <path d="M13.5 10a.5.5 0 0 1 .5.5V12h1.5a.5.5 0 1 1 0 1H14v1.5a.5.5 0 1 1-1 0V13h-1.5a.5.5 0 0 1 0-1H13v-1.5a.5.5 0 0 1 .5-.5z"/>
-            </svg>
-        </button>
-
-        <!-- Delete Folder -->
-        <button on:click={ () => showCreateNewFolder = true} class="folder-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-            </svg>
-        </button>
-
-        <!-- Rename Folder -->
-        <button class="folder-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
-                <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
-                <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
-            </svg>
-        </button>
+    
+    <div class="container-row">
         
-    </div>
+        <!-- Folder Controls -->
+        <div class="folder-controls">
+            <!-- Create Folder -->
+            <button on:click={ () => showCreateNewFolder = true} class="folder-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-folder-plus" viewBox="0 0 16 16">
+                    <path d="m.5 3 .04.87a1.99 1.99 0 0 0-.342 1.311l.637 7A2 2 0 0 0 2.826 14H9v-1H2.826a1 1 0 0 1-.995-.91l-.637-7A1 1 0 0 1 2.19 4h11.62a1 1 0 0 1 .996 1.09L14.54 8h1.005l.256-2.819A2 2 0 0 0 13.81 3H9.828a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 6.172 1H2.5a2 2 0 0 0-2 2zm5.672-1a1 1 0 0 1 .707.293L7.586 3H2.19c-.24 0-.47.042-.683.12L1.5 2.98a1 1 0 0 1 1-.98h3.672z"/>
+                    <path d="M13.5 10a.5.5 0 0 1 .5.5V12h1.5a.5.5 0 1 1 0 1H14v1.5a.5.5 0 1 1-1 0V13h-1.5a.5.5 0 0 1 0-1H13v-1.5a.5.5 0 0 1 .5-.5z"/>
+                </svg>
+            </button>
+        
+            <!-- Delete Folder -->
+            <button on:click={ () => deleteFileOrFolder( folderStructure.path[folderStructure.path.length - 1].id)} class="folder-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                </svg>
+            </button>
+        
+            <!-- Rename Folder -->
+            <button class="folder-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                    <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                    <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- File Controls -->
+        <div class="file-controls">
+            {#if !showUploadFile}
+            <!-- Upload File -->
+            <button on:click={ () => showUploadFile = true} class="folder-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+                    <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
+                    <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
+                  </svg>
+            </button>
+            {:else}
+                <button class="new-file-cancel" on:click={ () => {showUploadFile = false; createNewFileTitle = null}}>Cancel</button>
+    
+                {#if files && files[0]}
+                    <!-- Upload -->
+                    <button class="newfolder-btn" on:click={uploadFile}>Upload</button>
+                    {#if fileUploading}<Spinner/>{/if}
+                {/if}
 
-    <!-- File Controls -->
-    <div class="container-row file-controls">
-
-        {#if !showUploadFile}
-        <!-- Upload File -->
-        <button on:click={ () => showUploadFile = true} class="folder-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
-                <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
-                <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
-              </svg>
-        </button>
-        {:else}
-            <button class="new-file-cancel" on:click={ () => {showUploadFile = false; createNewFileTitle = null}}>Cancel</button>
-
-            {#if files && files[0]}
-                <!-- Upload -->
-                <button class="newfolder-btn" on:click={uploadFile}>Upload</button>
-                {#if fileUploading}<Spinner/>{/if}
+                <!-- File Title -->
+                <input type="text" name="new-file-title" id="new-file-title" placeholder="Title" bind:value={createNewFileTitle}>
+                <!-- File Selector -->
+                <input type="file" name="new-file" id="new-file" bind:files>
+    
             {/if}
-            
-            <!-- File Title -->
-            <input type="text" name="new-file-title" id="new-file-title" placeholder="Title" bind:value={createNewFileTitle}>
-            <!-- File Selector -->
-            <input type="file" name="new-file" id="new-file" bind:files>
+        </div>
 
-        {/if}
 
     </div>
 
@@ -282,9 +342,12 @@
     <!-- Breadcrumbs -->
     <ul class="breadcrumbs">
         <li class="crumb" on:click={returnToRoot}>Media Library</li>
-        {#each folderStructure.path as crumb, index}
-        <li class="crumb" on:click={() => handleBreadcrumbClick( index )}>{crumb.title}</li>
+        {#each folderStructure.path as crumb, index }
+        <li class="crumb" on:click={() => goToFolder( index )}>{crumb.title}</li>
         {/each}
+        {#if folderLoading}
+        <li class="crumb"><Spinner padding={"0"} height={"1rem"} width={"1rem"}/></li>
+        {/if}
     </ul>
 
     <!-- File Explorer -->
@@ -300,11 +363,11 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-folder" viewBox="0 0 16 16">
                 <path d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4H2.19zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707z"/>
             </svg>
-    
+
             <input type="text" placeholder="New Folder" bind:value={createNewFolderTitle}>
 
             <button class="new-folder-btn" on:click={createNewFolder}>Create</button>
-            
+
             <button class="new-folder-btn" on:click={() => showCreateNewFolder = false}>Cancel</button>
 
         </li>
@@ -357,7 +420,7 @@
         padding: 1rem;
         display: flex;
         flex-flow: column nowrap;
-        gap: 1rem;
+        gap: .5rem;
     }
 
     .container-row {
@@ -365,25 +428,36 @@
         flex-flow: row wrap;
         gap: .5rem;
         align-items: center;
-        width: fit-content;
+        /* width: fit-content; */
     }
 
     .folder-controls {
         background-color: var(--teal);
         padding: .5rem;
         border-radius: 5px;
+        display: flex;
+        flex-flow: row wrap;
+        gap: .5rem;
+        align-items: center;
     }
 
     .file-controls {
         background-color: var(--purple);
         padding: .5rem;
         border-radius: 5px;
+        display: flex;
+        flex-flow: row wrap;
+        gap: .5rem;
+        align-items: center;
     }
 
     button {
         border: none;
         background-color: transparent;
         padding: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
 
     .folder-btn {
@@ -403,8 +477,14 @@
         flex-flow: row wrap;
         gap: .5rem;
         list-style-type: none;
-        padding: .5rem 0;
+        padding: 0;
         margin: 0;
+    }
+
+    .crumb {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
     }
 
     .empty {
@@ -451,8 +531,7 @@
     }
 
     .file-explorer-item:hover {
-        background-color: var(--teal);
-        color: white;
+        background-color: var(--light-grey);
     }
 
     .selected-file {
