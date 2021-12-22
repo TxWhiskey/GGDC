@@ -12,7 +12,7 @@
 <div class="editor">
     
     <div class="row">
-        <h3>Item Config</h3>
+        <h3 class="title">Item Config</h3>
         <ItemControls rowId={$editorStore.selected.rowId} columnId={$editorStore.selected.columnId} itemId={$editorStore.selected.itemId}></ItemControls>
     </div>
 
@@ -35,6 +35,10 @@
         flex-flow: row wrap;
         gap: 1rem;
         align-items: center;
+    }
+
+    .title {
+        margin-right: auto;
     }
 
 </style>

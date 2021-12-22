@@ -26,9 +26,10 @@ export let postData: JournalPost = {
                             id: uuid(),
                             type: 'Image',
                             payload: {
-                                imageUrl: 'https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/journals%2Fmedia-library%2Fexterior-2.jpeg?alt=media&token=141d4536-9ad6-4d19-88ae-6f00814295b2',
-                                imageTitle: 'Test',
-                                maxWidth: 500,
+                                imageUrl: 'https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Media%20Library%2Fbob%20%26%20me.jpg?alt=media&token=c5f03305-da68-4d5f-9a3d-7bc994db2fa4',
+                                imageId: 'f8sbY3nGjrxi1RQM7is6',
+                                imageTitle: 'Bob & Me',
+                                maxWidth: 600,
                                 maxHeight: 500
                             }
                         }
@@ -85,3 +86,4 @@ export let postData: JournalPost = {
     title: "A Whole New World",
     pdfUrl: null
 }
+

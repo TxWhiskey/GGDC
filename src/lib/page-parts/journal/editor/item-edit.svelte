@@ -12,10 +12,12 @@
 
     $: component = itemLibrary.find( o => o.title == item.type ).editComponent
 
+    let config
+
 </script>
 
 <div class="item" on:click={ () => editorStore.selectEditItem( rowId, columnId, item.id )}>
-    <svelte:component this={component} payload={item.payload}/>
+    <svelte:component this={component} payload={item.payload} bind:this={config}/>
 </div>
 
 <style>

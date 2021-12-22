@@ -48,7 +48,7 @@ export async function del( req ) {
 
     if ( fileExists ) {
 
-        await filesRef.doc().delete()
+        await filesRef.doc(targetId).delete()
 
         return {
             status: 200,
@@ -62,18 +62,9 @@ export async function del( req ) {
 
     } 
 
-
-
-
-
-
-
-
-
     const batch = db.batch()
 
     /* Child Folder Deletion Logic */
-
 
     const foldersForDeletion = await foldersRef.where( "folderPath", 'array-contains', targetId ).get()
 
@@ -86,7 +77,6 @@ export async function del( req ) {
     })
 
     /* Child File Deletion Logic */
-
 
     const filesForDeletion = await filesRef.where( "folderPath", 'array-contains', targetId ).get()
 
