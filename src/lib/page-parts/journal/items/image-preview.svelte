@@ -24,6 +24,7 @@
 
     .image-container {
         display: flex;
+        flex: 1;
         flex-flow: row nowrap;
         justify-content: center;
     }

@@ -1,19 +1,19 @@
 import Paragraph from '$lib/page-parts/journal/items/paragraph.svelte'
-import ParagraphEdit from '$lib/page-parts/journal/items/paragraph-edit.svelte'
-import ParagraphSet from '$lib/page-parts/journal/items/paragraph-set.svelte'
+import ParagraphPreview from '$lib/page-parts/journal/items/paragraph-preview.svelte'
+import ParagraphConfig from '$lib/page-parts/journal/items/paragraph-config.svelte'
 import Heading from '$lib/page-parts/journal/items/heading.svelte'
-import HeadingEdit from '$lib/page-parts/journal/items/heading-edit.svelte'
-import HeadingSet from '$lib/page-parts/journal/items/heading-set.svelte'
+import HeadingPreview from '$lib/page-parts/journal/items/heading-preview.svelte'
+import HeadingConfig from '$lib/page-parts/journal/items/heading-config.svelte'
 import Image from '$lib/page-parts/journal/items/image.svelte'
-import ImageEdit from '$lib/page-parts/journal/items/image-edit.svelte'
-import ImageSet from '$lib/page-parts/journal/items/image-set.svelte'
+import ImagePreview from '$lib/page-parts/journal/items/image-preview.svelte'
+import ImageConfig from '$lib/page-parts/journal/items/image-config.svelte'
 
 import type {  } from 'svelte'
 
 export interface entry {
     title: string;
     viewComponent: any;
-    editComponent: any;
+    previewComponent: any;
     configComponent: any;
 }
 
@@ -21,19 +21,19 @@ export const itemLibrary: entry[] = [
     {
         title: "Image",
         viewComponent: Image,
-        configComponent: ImageSet,
-        editComponent: ImageEdit
+        configComponent: ImageConfig,
+        previewComponent: ImagePreview
     },
     {
         title: "Heading",
         viewComponent: Heading,
-        configComponent: HeadingSet,
-        editComponent: HeadingEdit
+        configComponent: HeadingConfig,
+        previewComponent: HeadingPreview
     },
     {
         title: "Paragraph",
         viewComponent: Paragraph,
-        configComponent: ParagraphSet,
-        editComponent: ParagraphEdit
+        configComponent: ParagraphConfig,
+        previewComponent: ParagraphPreview
     },
 ]

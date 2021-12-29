@@ -3,27 +3,43 @@
     import FileExplorer from "$lib/page-parts/journal/sub-componenets/file-explorer/file-explorer.svelte";
 
     import { editorStore } from "$lib/page-parts/journal/editor/editorStore";
-
-    export let payload
+    import type { FileData } from "../sub-componenets/file-explorer/file-explorer-types";
 
     let showMediaLibrary = false;
 
     editorStore.subscribe( s => {
-        if (s.selected.item.payload) {
+        if (s.selected?.item.payload) {
             showMediaLibrary = false
         } else {
             showMediaLibrary = true
         }
     })
 
-</script>
+    function updatePayload( file: FileData ) {
 
+        $editorStore.selected.item.payload = {
+            imageUrl: file.url,
+            imageTitle: file.title,
+            imageId: file.id,
+            maxHeight: 500,
+            maxWidth: 500
+        }
+
+        showMediaLibrary = false
+    }
+
+</script>
 
 <div class="controls">
     
     <!-- Current Image Title -->
     {#if $editorStore.selected.item.payload}
+
+    {#if showMediaLibrary}
+    <button class="add-media" on:click={ () => showMediaLibrary = false }>Cancel</button>
+    {:else}
     <button class="add-media" on:click={ () => showMediaLibrary = true }>Replace Image</button>
+    {/if}
     <input type="text" disabled bind:value={$editorStore.selected.item.payload.imageTitle} class="image-title">
     <p>Max-Height:</p>
     <input type="text" placeholder="Max Height" bind:value={$editorStore.selected.item.payload.maxHeight} class="config-box">
@@ -34,7 +50,7 @@
 </div>
 
 {#if showMediaLibrary}
-<FileExplorer />
+<FileExplorer on:setFile={ (e) => updatePayload(e.detail.targetFile)}/>
 {/if}
 
 <style>
@@ -45,7 +61,7 @@
         gap: .5rem;
         align-items: center;
     }
-    
+
     .add-media {
         border: thin solid var(--teal);
         padding: .5rem;

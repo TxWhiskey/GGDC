@@ -1,3 +1,5 @@
+import type { FileData } from "$lib/page-parts/journal/sub-componenets/file-explorer/file-explorer-types";
+
 export interface FolderStructure {
     path: {
         id: string;
@@ -7,9 +9,5 @@ export interface FolderStructure {
         id: string;
         title: string;
     }[];
-    files: {
-        id: string;
-        title: string;
-        type: string;
-    }[];
+    files: FileData[];
 }

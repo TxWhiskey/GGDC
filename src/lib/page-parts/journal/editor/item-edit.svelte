@@ -10,7 +10,7 @@
     export let columnId: string
     export let item: Item
 
-    $: component = itemLibrary.find( o => o.title == item.type ).editComponent
+    $: component = itemLibrary.find( o => o.title == item.type ).previewComponent
 
     let config
 

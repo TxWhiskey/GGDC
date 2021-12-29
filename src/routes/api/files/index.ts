@@ -35,6 +35,7 @@ export async function post( request ) {
     
     const foldersRef = db.collection("Folders")
 
+    // Get folder info for path (Ancestors and self)
     folderContents.path = await Promise.all( requestedPath.map( async ( folderId ) => {
         const docData = (await foldersRef.doc(folderId).get()).data()
         return {
@@ -43,8 +44,11 @@ export async function post( request ) {
         }
     }))
 
+    // Remove Meida Library from path
     folderContents.path.splice( 0 , 1 )
     
+
+    // Get folder info for child folders
     const folderSnapshot = await foldersRef.where( "folderPath", "==", requestedPath).get()
     
     if ( !folderSnapshot.empty ) {
@@ -56,6 +60,7 @@ export async function post( request ) {
 
     }
 
+    // Get child files
     const filesRef = db.collection("Files")
 
     const fileSnapshot = await filesRef.where( "folderPath", "==", requestedPath).get()
@@ -64,8 +69,9 @@ export async function post( request ) {
 
         fileSnapshot.forEach( docSnap => folderContents.files.push( {
             id: docSnap.id,
-            title: docSnap.data().title,
-            type: docSnap.data().type
+            /* title: docSnap.data().title,
+            type: docSnap.data().type, */
+            ...docSnap.data()
         } ))
 
     }

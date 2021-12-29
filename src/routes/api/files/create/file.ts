@@ -43,7 +43,8 @@ export async function post( request ) {
             id: res.id,
             title,
             folderPath: path,
-            type
+            type,
+            url
         }
     }
 

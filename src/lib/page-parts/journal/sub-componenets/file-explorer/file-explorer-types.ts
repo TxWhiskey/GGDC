@@ -14,10 +14,10 @@ export interface FolderStructure {
     }[];
 }
 
-export interface FileExplorerView extends FolderStructure {
-    viewLoaded: boolean,
-    showCreateNewFolder: boolean,
-    renamingFolder: boolean,
-    folderLoading: boolean,
-    selectedFileId: string,
+export interface FileData {
+    folderPath: string[],
+    id: string,
+    title: string,
+    type: string,
+    url: string
 }
