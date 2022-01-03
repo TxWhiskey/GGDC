@@ -1,12 +1,18 @@
 <script context='module' lang='ts'>
 
+    import { postData } from '$lib/test-data/newPost'
+
+    const post = postData
+    
     export async function load () {
             return {
-                /* props: {
-                    postData: postData
-                } */
+                props: {
+                    postData: post
+                }
             }
     }
+
+    export const ssr = false
 
 </script>
 
@@ -17,7 +23,9 @@
     import ColumnEdit from '$lib/page-parts/journal/editor/column-edit.svelte';
 
     import { editorStore } from '$lib/page-parts/journal/editor/editorStore'
-    import { postData } from '$lib/test-data/newPost'
+    import type { JournalPost } from '$lib/types/journal';
+
+    export let postData: JournalPost
 
     const itemTypes = [
         'Text',
@@ -25,6 +33,49 @@
     ]
 
     editorStore.initStore( postData )
+
+    async function savePost() {
+
+        let requestInit = {
+            method: "POST",
+            body: JSON.stringify(postData),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        const res = await fetch( "/api/journals", requestInit )
+
+        const body = await res.json()
+
+        console.log(body);
+
+    }
+
+    async function togglePublish() {
+
+        await savePost()
+
+        const newState = !postData.published
+
+        /* let requestInit = {
+            method: "POST",
+            body: JSON.stringify(postData),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        } */
+
+        const res = await fetch( `/api/journals/publish/${postData.id}/${newState}` )
+
+        const body = await res.json()
+
+        postData.published = newState
+        postData.publishedDate = new Date
+
+        console.log(body);
+
+    }
 
 </script>
 
@@ -36,26 +87,35 @@
                 <input type="text" placeholder="Post Title" bind:value={postData.title}>
             </li>
             <li class="heading-list-item">
-                <button>Save</button>
+                <button on:click={savePost}>Save</button>
             </li>
             <li class="heading-list-item">
-                <button>Publish</button>
+                <button on:click={togglePublish}>
+                    {#if postData.published}
+                    Revoke
+                    {:else}
+                    Publish
+                    {/if}
+                </button>
             </li>
             <li class="heading-list-item">
                 <p>PDF:</p>
                 <input type="file">
+            </li>
+            <li class="heading-list-item">
+                {postData.createdDate}
             </li>
         </ul>
     </div>
 
     <div class="post-editor">
 
-        {#if $editorStore.postData.rows}
+        {#if $editorStore.postData.content}
 
         <div class="rows">
 
             <!-- Rows -->
-            {#each $editorStore.postData.rows as row, ri}
+            {#each $editorStore.postData.content as row, ri}
 
                 <div class="row">
 

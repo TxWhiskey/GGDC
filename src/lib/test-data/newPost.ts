@@ -15,7 +15,9 @@ function getItem(): Item {
 export let postData: JournalPost = {
     id: uuid(),
     published: false,
-    rows: [
+    publishedDate: new Date,
+    createdDate: new Date,
+    content: [
         {
             id: uuid(),
             columns: [

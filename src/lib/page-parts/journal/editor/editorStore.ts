@@ -6,9 +6,12 @@ import { v4 as uuid } from 'uuid'
 
 import type { JournalPost, Item } from "$lib/types/journal"
 
+import { itemLibrary } from '$lib/page-parts/journal/itemTypes'
+
 interface EditorState {
     postData: JournalPost,
     editing: boolean,
+    expandEditor: boolean,
     selected: {
         rowId: string,
         columnId: string,
@@ -19,7 +22,7 @@ interface EditorState {
 
 function initStore() {
 
-    const { subscribe, set, update } = writable<EditorState>({postData:null, editing: false, selected: null})
+    const { subscribe, set, update } = writable<EditorState>({postData:null, editing: false, selected: null, expandEditor: false})
 
     // Store Controls
 
@@ -27,6 +30,7 @@ function initStore() {
             set({
                 postData,
                 editing: false,
+                expandEditor: false,
                 selected: null
             })
         }
@@ -39,7 +43,7 @@ function initStore() {
 
             update( s => {
                 
-                s.postData.rows.push({
+                s.postData.content.push({
                     id: uuid(),
                     columns: [{
                         id: uuid(),
@@ -56,9 +60,10 @@ function initStore() {
 
             update( s => {
 
-                const rows = s.postData.rows.filter( r => r.id != rowId)
+                const rows = s.postData.content.filter( r => r.id != rowId)
 
-                s.postData.rows = rows
+                s.postData.content = rows
+                s.editing = false
 
                 return s
 
@@ -70,7 +75,7 @@ function initStore() {
 
             update( s => {
 
-                let rows = s.postData.rows
+                let rows = s.postData.content
 
                 const currentIndex = rows.findIndex( item => item.id == rowId)
 
@@ -83,7 +88,7 @@ function initStore() {
                 rows[currentIndex - 1] = currentItem
 
 
-                s.postData.rows = rows
+                s.postData.content = rows
 
                 return s
 
@@ -94,7 +99,7 @@ function initStore() {
 
             update( s => {
 
-                let rows = s.postData.rows
+                let rows = s.postData.content
 
                 const currentIndex = rows.findIndex( row => row.id == rowId)
 
@@ -106,7 +111,7 @@ function initStore() {
                 rows[currentIndex] = nextItem
                 rows[currentIndex + 1] = currentItem
 
-                s.postData.rows = rows
+                s.postData.content = rows
 
                 return s
 
@@ -119,8 +124,8 @@ function initStore() {
 
             update( s => {
 
-                const rowIndex: number = s.postData.rows.findIndex( r => r.id == rowId )
-                s.postData.rows[rowIndex].columns.push({
+                const rowIndex: number = s.postData.content.findIndex( r => r.id == rowId )
+                s.postData.content[rowIndex].columns.push({
                     id: uuid(),
                     items: []
                 })
@@ -133,9 +138,11 @@ function initStore() {
 
             update( s => {
 
-                const filteredColumns = s.postData.rows[rowIndex].columns.filter( c => c.id != columnId )
+                const filteredColumns = s.postData.content[rowIndex].columns.filter( c => c.id != columnId )
 
-                s.postData.rows[rowIndex].columns = filteredColumns
+                s.postData.content[rowIndex].columns = filteredColumns
+
+                s.editing = false
 
                 return s
 
@@ -148,7 +155,7 @@ function initStore() {
 
                 update( d => {
 
-                    let columns = d.postData.rows[rowIndex].columns
+                    let columns = d.postData.content[rowIndex].columns
     
                     const target = columns[columnIndex]
                     const previous = columns[columnIndex - 1]
@@ -156,7 +163,7 @@ function initStore() {
                     columns[columnIndex - 1] = target
                     columns[columnIndex] = previous
     
-                    d.postData.rows[rowIndex].columns = columns
+                    d.postData.content[rowIndex].columns = columns
 
                     return d
 
@@ -170,9 +177,9 @@ function initStore() {
 
             update( d => {
                 
-                if ( columnIndex < d.postData.rows[rowIndex].columns.length - 1 ) {
+                if ( columnIndex < d.postData.content[rowIndex].columns.length - 1 ) {
     
-                    let columns = [...d.postData.rows[rowIndex].columns]
+                    let columns = [...d.postData.content[rowIndex].columns]
     
                     const target = columns[columnIndex]
                     const next = columns[columnIndex + 1]
@@ -180,7 +187,7 @@ function initStore() {
                     columns[columnIndex + 1] = target
                     columns[columnIndex] = next
     
-                    d.postData.rows[rowIndex].columns = columns
+                    d.postData.content[rowIndex].columns = columns
     
                     return d
     
@@ -199,18 +206,18 @@ function initStore() {
 
             update( s => {
 
-                const rowIndex = s.postData.rows.findIndex( row => row.id == rowId)
-                const columnIndex = s.postData.rows[rowIndex].columns.findIndex( c => c.id == columnId )
+                const rowIndex = s.postData.content.findIndex( row => row.id == rowId)
+                const columnIndex = s.postData.content[rowIndex].columns.findIndex( c => c.id == columnId )
 
                 const itemId = uuid()
 
                 const newItem = {
                     id: itemId,
                     type: itemType,
-                    payload: null
+                    payload: itemLibrary.find( i => i.title == itemType).defaultPayload
                 }
 
-                s.postData.rows[rowIndex].columns[columnIndex].items.push( newItem )
+                s.postData.content[rowIndex].columns[columnIndex].items.push( newItem )
 
                 s.selected = { rowId, columnId, itemId, item: newItem }
 
@@ -232,12 +239,12 @@ function initStore() {
 
             update( s => {
                 
-                const rowIndex = s.postData.rows.findIndex( row => row.id == rowId)
-                const columnIndex = s.postData.rows[rowIndex].columns.findIndex( col => col.id == columnId )
+                const rowIndex = s.postData.content.findIndex( row => row.id == rowId)
+                const columnIndex = s.postData.content[rowIndex].columns.findIndex( col => col.id == columnId )
 
-                let itemList = s.postData.rows[rowIndex].columns[columnIndex].items.filter( item => item.id != itemId )
+                let itemList = s.postData.content[rowIndex].columns[columnIndex].items.filter( item => item.id != itemId )
 
-                s.postData.rows[rowIndex].columns[columnIndex].items = itemList
+                s.postData.content[rowIndex].columns[columnIndex].items = itemList
 
                 if ( s.editing && s.selected.itemId == itemId) {
                     s.editing = false
@@ -254,7 +261,7 @@ function initStore() {
         function selectEditItem( rowId: string, columnId: string, itemId: string ) {
             update( s => {
 
-                let item = s.postData.rows.find( r => r.id == rowId).columns.find( c => c.id == columnId).items.find( i => i.id == itemId)
+                let item = s.postData.content.find( r => r.id == rowId).columns.find( c => c.id == columnId).items.find( i => i.id == itemId)
 
                 s.selected = { rowId, columnId, itemId, item }
                 s.editing = true
@@ -275,10 +282,10 @@ function initStore() {
         
             update( s => {
 
-                const rowIndex = s.postData.rows.findIndex( row => row.id == rowId)
-                const columnIndex = s.postData.rows[rowIndex].columns.findIndex( col => col.id == columnId )
+                const rowIndex = s.postData.content.findIndex( row => row.id == rowId)
+                const columnIndex = s.postData.content[rowIndex].columns.findIndex( col => col.id == columnId )
 
-                let columnItems = s.postData.rows[rowIndex].columns[columnIndex].items
+                let columnItems = s.postData.content[rowIndex].columns[columnIndex].items
 
                 const currentIndex = columnItems.findIndex( item => item.id == itemId)
 
@@ -291,7 +298,7 @@ function initStore() {
                 columnItems[currentIndex - 1] = currentItem
 
 
-                s.postData.rows[rowIndex].columns[columnIndex].items = columnItems
+                s.postData.content[rowIndex].columns[columnIndex].items = columnItems
 
                 return s
 
@@ -303,10 +310,10 @@ function initStore() {
 
             update( s => {
 
-                const rowIndex = s.postData.rows.findIndex( row => row.id == rowId)
-                const columnIndex = s.postData.rows[rowIndex].columns.findIndex( col => col.id == columnId )
+                const rowIndex = s.postData.content.findIndex( row => row.id == rowId)
+                const columnIndex = s.postData.content[rowIndex].columns.findIndex( col => col.id == columnId )
 
-                let columnItems = s.postData.rows[rowIndex].columns[columnIndex].items
+                let columnItems = s.postData.content[rowIndex].columns[columnIndex].items
 
                 const currentIndex = columnItems.findIndex( item => item.id == itemId)
 
@@ -318,7 +325,7 @@ function initStore() {
                 columnItems[currentIndex] = nextItem
                 columnItems[currentIndex + 1] = currentItem
 
-                s.postData.rows[rowIndex].columns[columnIndex].items = columnItems
+                s.postData.content[rowIndex].columns[columnIndex].items = columnItems
 
                 return s
 
@@ -329,13 +336,13 @@ function initStore() {
 
             update( s => {
 
-                const rowIndex = s.postData.rows.findIndex( r => r.id == rowId)
+                const rowIndex = s.postData.content.findIndex( r => r.id == rowId)
 
-                const colIndex = s.postData.rows[rowIndex].columns.findIndex( c => c.id == columnId)
+                const colIndex = s.postData.content[rowIndex].columns.findIndex( c => c.id == columnId)
 
-                const itemIndex = s.postData.rows[rowIndex].columns[colIndex].items.findIndex( i => i.id == itemId)
+                const itemIndex = s.postData.content[rowIndex].columns[colIndex].items.findIndex( i => i.id == itemId)
 
-                s.postData.rows[rowIndex].columns[colIndex].items[itemIndex].payload = payload
+                s.postData.content[rowIndex].columns[colIndex].items[itemIndex].payload = payload
 
                 s.editing = false
                 s.selected = null

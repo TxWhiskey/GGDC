@@ -2,8 +2,10 @@ export interface JournalPost {
     id: string;
     title: string;
     published: boolean;
-    rows: Row[];
+    publishedDate: Date;
+    createdDate: Date;
     pdfUrl: string;
+    content?: Row[];
 }
 
 export interface Section {

@@ -1,4 +1,5 @@
-import type { ServerRequest } from "@sveltejs/kit/types/hooks";
+import type { JournalPost } from '$lib/types/journal'
+
 import * as admin from 'firebase-admin'
 import '$lib/firebase/firebase-admin'
 
@@ -25,31 +26,34 @@ export async function get() {
 
 export async function post( request ) {
 
-    if ( !request.locals.authenticated ) {
+    /* if ( !request.locals.authenticated ) {
         return {
             status: 403,
             body: {
                 message: "Unauthenticated"
             }
         }
-    }
+    } */
 
-    const title = request.body.title
-    const body = request.body.body
+    const post: JournalPost = request.body
 
-    if ( !title || ! body ) {
+    /* if ( !title || ! body ) {
         return {
             status: 400,
             body: {
                 message: "Must contain a title and body."
             }
         }
-    }
-
-    const newPost = await admin.firestore().collection('Journals').doc().create({
-        title: request.body.title,
-        body: request.body.body
+    } */
+    const newPostData = await admin.firestore().collection('Journal Data').doc(post.id).set({
+        postId: post.id,
+        content: post.content
     })
+
+    delete post.content
+
+    const newPost = await admin.firestore().collection('Journals').doc(post.id).set({...post})
+
 
     return {
         status: 200,

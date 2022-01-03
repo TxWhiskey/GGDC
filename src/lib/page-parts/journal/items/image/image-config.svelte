@@ -3,7 +3,7 @@
     import FileExplorer from "$lib/page-parts/journal/sub-componenets/file-explorer/file-explorer.svelte";
 
     import { editorStore } from "$lib/page-parts/journal/editor/editorStore";
-    import type { FileData } from "../sub-componenets/file-explorer/file-explorer-types";
+    import type { FileData } from "../../sub-componenets/file-explorer/file-explorer-types";
 
     let showMediaLibrary = false;
 

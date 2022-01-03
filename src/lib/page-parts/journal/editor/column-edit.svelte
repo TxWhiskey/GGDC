@@ -6,14 +6,14 @@
     import ItemTypeList from './item-type-list.svelte';
 
     export let rowId: string
-    let rowIndex = $editorStore.postData.rows.findIndex( row => row.id == rowId )
+    let rowIndex = $editorStore.postData.content.findIndex( row => row.id == rowId )
 
     export let columnId: string
     export let column: Column
 
     let showAddItemTypes = false
 
-    let columnIndex = $editorStore.postData.rows[rowIndex].columns.findIndex( col => col.id === columnId)
+    let columnIndex = $editorStore.postData.content[rowIndex].columns.findIndex( col => col.id === columnId)
 
 </script>
 
@@ -117,7 +117,8 @@
         width: 100%;
         border: none;
         background-color: transparent;
-        color: rgb(183, 183, 183);
+        color: var(--grey);
+        font-weight: 400;
     }
 
     .column-options {

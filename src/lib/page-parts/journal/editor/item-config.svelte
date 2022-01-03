@@ -16,7 +16,7 @@
         <ItemControls rowId={$editorStore.selected.rowId} columnId={$editorStore.selected.columnId} itemId={$editorStore.selected.itemId}></ItemControls>
     </div>
 
-    <svelte:component this={component} payload={$editorStore.selected.item.type}/>
+    <svelte:component this={component}/>
 
 </div>
 
@@ -28,6 +28,7 @@
         display: flex;
         flex-flow: column nowrap;
         gap: .5rem;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
     }
 
     .row {
