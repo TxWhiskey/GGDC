@@ -1,7 +1,6 @@
 import * as admin from 'firebase-admin'
-import '$lib/firebase/firebase-admin'
 
-const db = admin.firestore()
+import { db } from '$lib/firebase/firebase-admin'
 
 export async function post( request ) {
 
@@ -69,8 +68,6 @@ export async function post( request ) {
 
         fileSnapshot.forEach( docSnap => folderContents.files.push( {
             id: docSnap.id,
-            /* title: docSnap.data().title,
-            type: docSnap.data().type, */
             ...docSnap.data()
         } ))
 

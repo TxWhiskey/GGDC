@@ -13,8 +13,6 @@
 
 <script lang='ts'>
 
-
-
     import { goto } from "$app/navigation";
 
     import { authGuard, loginWithEmail, getCookie, logout } from '$lib/auth/auth'

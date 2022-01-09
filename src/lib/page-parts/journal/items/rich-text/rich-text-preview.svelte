@@ -2,15 +2,18 @@
 
     import SvelteMarkdown from 'svelte-markdown'
 
-    export let payload = 'Insert your text'
+    import type { RichTextPayload } from './rich-text-payload';
 
+    export let payload: RichTextPayload = {
+        content: 'Insert your text'
+    }
 
 </script>
 
 {#if payload}
 
 <div class="display">
-    <SvelteMarkdown source={payload}/>
+    <SvelteMarkdown source={payload.content}/>
 </div>
 
 {:else}

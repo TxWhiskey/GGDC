@@ -1,8 +1,12 @@
 import * as functions from "firebase-functions";
 
-import * as admin from 'firebase-admin'
+import { initializeApp } from 'firebase-admin/app'
+import { getFirestore,  } from 'firebase-admin/firestore'
+import { ServerValue } from 'firebase-admin/database'
 
-admin.initializeApp()
+const app = initializeApp()
+
+const db = getFirestore(app)
 
 import nodemailer = require('nodemailer');
 
@@ -16,10 +20,10 @@ exports.submitSurvey = functions.https.onRequest( (req: functions.https.Request 
 
         const surveyResponse = req.body.selection
 
-        admin.firestore().collection('surveyResponses').add({
+        db.collection('surveyResponses').add({
             surveyNumber: 12,
             response: surveyResponse,
-            timestamp: admin.firestore.Timestamp.now()
+            timestamp: ServerValue.TIMESTAMP
         }).then( r => res.send(r))
 
     })
@@ -93,3 +97,15 @@ exports.handleFormSubmit = functions.https.onRequest( ( req: functions.https.Req
     })
 
 })
+
+let ssrServerServer: any
+
+exports.ssrServer = functions.region("us-central1").https.onRequest(async (request, response) => {
+    if (!ssrServerServer) {
+            functions.logger.info("Initialising SvelteKit SSR entry");
+            ssrServerServer = require("./ssrServer/index").default;
+            functions.logger.info("SvelteKit SSR entry initialised!");
+    }
+    functions.logger.info("Requested resource: " + request.originalUrl);
+    return ssrServerServer(request, response);
+});

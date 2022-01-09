@@ -17,7 +17,7 @@
 </script>
 
 <div class="item" on:click={ () => editorStore.selectEditItem( rowId, columnId, item.id )}>
-    <svelte:component this={component} payload={item.payload} bind:this={config}/>
+    <svelte:component this={component} bind:this={config} payload={item.payload}/>
 </div>
 
 <style>

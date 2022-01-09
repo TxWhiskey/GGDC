@@ -1,9 +1,9 @@
 import * as admin from 'firebase-admin'
-import '$lib/firebase/firebase-admin'
+import { db } from '$lib/firebase/firebase-admin'
 
 export async function get() {
 
-    const snapshot = await admin.firestore().collection("surveyResponses").get()
+    const snapshot = await db.collection("surveyResponses").get()
 
     let responses = []
 
@@ -17,13 +17,6 @@ export async function get() {
             timestamp: r.timestamp.toDate().toDateString()
         }
     })
-
-    /* return {
-        status: 200,
-        body: {
-            message: 'Success'
-        }
-    } */
 
     return {
         status: 200,

@@ -1,5 +1,5 @@
 import * as admin from 'firebase-admin'
-import '$lib/firebase/firebase-admin'
+import { db } from '$lib/firebase/firebase-admin'
 
 import { v4 as uuid } from 'uuid'
 
@@ -17,7 +17,7 @@ export async function get() {
 }
 
 export async function post( request ) {
-    
+
     /* if ( !request.locals.authenticated ) {
         return {
             status: 403,
@@ -44,7 +44,7 @@ export async function post( request ) {
 
     pathArray = pathArray.filter( p => p? true: false)
 
-    await admin.firestore().collection('Folders').doc("Media Library/" + path).set({
+    await db.collection('Folders').doc("Media Library/" + path).set({
         title,
         url
     })

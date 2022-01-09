@@ -1,7 +1,7 @@
 import preprocess from 'svelte-preprocess';
-//import firebase from "svelte-adapter-firebase";
+import firebase from "svelte-adapter-firebase";
 
-import adapter from '@sveltejs/adapter-static';
+//import adapter from '@sveltejs/adapter-static';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -11,12 +11,7 @@ const config = {
 
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
-		adapter: adapter({
-			// default options are shown
-			pages: 'build',
-			assets: 'build',
-			fallback: null
-		}),
+		adapter: firebase(),
 		target: '#svelte'
 	}
 };

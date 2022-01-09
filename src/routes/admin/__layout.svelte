@@ -2,9 +2,9 @@
 
 import { authGuard } from "$lib/auth/auth";
 
-export async function load({ session, page }) {
+export async function load({ session, url }) {
 
-    return authGuard( page.path, session )
+    return authGuard( url.pathname, session )
 
 }
 

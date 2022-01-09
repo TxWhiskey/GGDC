@@ -20,8 +20,8 @@
     box-sizing: border-box;
 }
 
-strong {
-    font-weight: 400;
+strong, b {
+    font-weight: 500;
 }
 
 html {
@@ -30,6 +30,8 @@ html {
 body {
     margin: 0;
 }
+
+
 
 :is(h1, h2, h3, h4, h5, h6, p) {
     margin: 0;
@@ -43,6 +45,12 @@ a {
 
 button {
     cursor: pointer;
+}
+
+ul {
+    margin: 0;
+    display: inline-block; 
+	text-align: left; 
 }
 
 .purple {

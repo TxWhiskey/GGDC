@@ -3,10 +3,12 @@ import '$lib/firebase/firebase'
 import { signInWithEmailAndPassword, getAuth, signOut } from "@firebase/auth"
 import type { User  } from 'firebase/auth'
 
+import { auth } from '$lib/firebase/firebase'
+
 import { session } from '$app/stores'
 import { goto } from '$app/navigation'
 
-const auth = getAuth()
+//const auth = getAuth()
 
 export async function getCookie( user: User) {
     

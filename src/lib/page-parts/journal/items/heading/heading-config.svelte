@@ -7,6 +7,7 @@ import { editorStore } from "$lib/page-parts/journal/editor/editorStore";
 onMount( () => {
 
     document.getElementById('addItemFocus').focus()
+
 })
 
 </script>

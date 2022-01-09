@@ -1,4 +1,6 @@
-<script>
+<script lang='ts'>
+
+    import { derived } from "svelte/store";
 
     import { editorStore } from "$lib/page-parts/journal/editor/editorStore";
 
@@ -21,7 +23,19 @@
     let expanded = false
 
     let height = smallHeight
-    
+
+    let selected = null
+    let text = ''
+
+    editorStore.subscribe( s => {
+
+        if ( (selected?.item.id !== s.selected?.item.id) && (s.selected?.item.type == "Rich Text") ) {
+            selected = s.selected
+            text = s.selected.item.payload.content
+        }
+
+    })
+
     function toggleHeight() {
         if ( expanded ) {
             height = smallHeight
@@ -32,21 +46,25 @@
         }
     }
 
-
 </script>
 
-<button on:click={toggleHeight}>Expand</button>
+<div class="controls">
+
+    <button on:click={ () => editorStore.updateItemPayload($editorStore.selected.rowId, $editorStore.selected.columnId, $editorStore.selected.itemId, {content: text})}>Set</button>
+    <button on:click={editorStore.cancelEditItem}>Cancel</button>
+    <button on:click={toggleHeight}>Expand</button>
+
+</div>
 
 {#if $editorStore.selected}
 
 <div style="height: {height};">
     <Editor
-        bind:value={$editorStore.selected.item.payload}
+        bind:value={text}
         scriptSrc="/node_modules/tinymce/tinymce.min.js"
         conf={editorConfig}
         cssClass={"testtest"}
     />
-
 </div>
 
 {/if}
@@ -55,6 +73,13 @@
 
     :global(.testtest) {
         height: 100%;
+    }
+
+    .controls {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 1rem;
+
     }
 
     button {

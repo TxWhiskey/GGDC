@@ -1,7 +1,5 @@
 import * as admin from 'firebase-admin'
-import '$lib/firebase/firebase-admin'
-
-const db = admin.firestore()
+import { db } from '$lib/firebase/firebase-admin'
 
 export async function post( request ) {
 

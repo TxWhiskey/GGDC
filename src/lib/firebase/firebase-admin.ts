@@ -1,6 +1,6 @@
-import admin from 'firebase-admin'
+/* import admin from 'firebase-admin'
 
-function initApp() {
+function initApp() { */
 
     /* if (import.meta.env.DEV) {
         console.info("Init Admin App [Dev]")
@@ -13,13 +13,20 @@ function initApp() {
     } */
     /* return initializeApp({
         credential: credential.cert(JSON.parse(import.meta.env.VITE_FB_SA as string))
-    }) */
-}
+    })
+} */
 
 /* if (!admin.apps.length) {
     initApp()
 } */
 
-admin.initializeApp()
+/* admin.initializeApp()
 
-export const fbAdmin = admin
+export const fbAdmin = admin */
+
+import { initializeApp, applicationDefault, } from 'firebase-admin/app'
+import { getFirestore } from 'firebase-admin/firestore'
+
+export const app = initializeApp()
+
+export const db = getFirestore(app)

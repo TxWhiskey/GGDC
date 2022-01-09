@@ -1,15 +1,36 @@
 <script context='module' lang='ts'>
 
-    import { postData } from '$lib/test-data/newPost'
+    import type { JournalPost } from '$lib/types/journal';
 
-    const post = postData
-    
-    export async function load () {
-            return {
-                props: {
-                    postData: post
-                }
+    import { getDefaultPost } from '$lib/default-post/default-post'
+
+    export async function load ( { params, fetch}) {
+
+        let post: JournalPost
+
+        const postId = params.id
+
+        if ( postId == 'new' ) {
+            
+            post = getDefaultPost()
+
+        } else {
+
+            const res = await fetch( `/api/journals/${postId}`)
+
+            post = await res.json()
+
+            console.log(post);
+            
+
+        }
+
+        return {
+            props: {
+                postData: post
             }
+        }
+
     }
 
     export const ssr = false
@@ -18,14 +39,26 @@
 
 <script lang='ts'>
 
+    import { goto } from '$app/navigation';
+        
+    import { app, auth } from '$lib/firebase/firebase'
+    import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+
+
     import ItemConfig from '$lib/page-parts/journal/editor/item-config.svelte';
     import ItemTypeList from '$lib/page-parts/journal/editor/item-type-list.svelte';
     import ColumnEdit from '$lib/page-parts/journal/editor/column-edit.svelte';
 
     import { editorStore } from '$lib/page-parts/journal/editor/editorStore'
-    import type { JournalPost } from '$lib/types/journal';
+
+    import Spinner from '$lib/page-parts/spinner.svelte'
 
     export let postData: JournalPost
+
+    let stagedPDF = null
+    let uploadingPDF = false
+
+    let confirmDelete = false
 
     const itemTypes = [
         'Text',
@@ -47,8 +80,6 @@
         const res = await fetch( "/api/journals", requestInit )
 
         const body = await res.json()
-
-        console.log(body);
 
     }
 
@@ -73,7 +104,65 @@
         postData.published = newState
         postData.publishedDate = new Date
 
-        console.log(body);
+    }
+
+    async function uploadPDF() {
+
+        uploadingPDF = true
+
+        const file = stagedPDF[0]
+
+        let path: string[] = ["Journals","PDF Versions"]
+        let newFileTitle: string = postData.title
+        
+        const storage = getStorage( app )
+        const storageRef = ref( storage, 'Media Library/' + newFileTitle )
+
+        const typeAndExtension = (file.type as string).split( "/")
+        
+        let fileType = typeAndExtension[0] == "image" ? "image" : "document"
+
+        const fileInfo = await uploadBytes( storageRef, file)
+            .then( async snapshot => {
+                return await getDownloadURL(snapshot.ref)
+            }).then( async ( url: string) => {
+
+                const res = await fetch( '/api/files/create/file', {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        path: path,
+                        title: newFileTitle || file.name,
+                        url: url,
+                        type: fileType
+                    })
+                })
+
+                const newFileData = await res.json()
+
+                postData.pdfUrl = newFileData.url
+
+                uploadingPDF = false
+
+                stagedPDF = null
+
+            })
+            .catch( (err) => console.log(err))
+
+    }
+
+    async function deletePost() {
+
+        const res = await fetch( '/api/journals/' + postData.id, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
+
+        goto('/admin/portal/journal')
 
     }
 
@@ -98,12 +187,46 @@
                     {/if}
                 </button>
             </li>
+
+            <!-- Post Delete -->
+            {#if !confirmDelete}
+            
+            <li class="heading-list-item">
+                <button on:click={() => confirmDelete = true}>
+                    Delete
+                </button>
+            </li>
+
+            {:else}
+
+            <li class="heading-list-item">
+                <button on:click={ () => confirmDelete = false}>Cancel</button>
+            </li>
+
+            <li class="heading-list-item">
+                <button on:click={deletePost}>Confirm</button>
+            </li>
+
+            {/if}
+
+
             <li class="heading-list-item">
                 <p>PDF:</p>
-                <input type="file">
-            </li>
-            <li class="heading-list-item">
-                {postData.createdDate}
+                {#if postData.pdfUrl}
+                <button on:click={ () => postData.pdfUrl = null}>Remove</button>
+                {:else if uploadingPDF}
+                <Spinner padding="0" height="1rem" width="1rem"/>
+                {:else if !stagedPDF}
+                <label for="pdf-upload" class="pdf-upload-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+                        <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
+                        <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
+                    </svg>
+                    <input type="file" id="pdf-upload" class="pdf-upload" bind:files={stagedPDF}>
+                </label>
+                {:else}
+                <button on:click={uploadPDF}>Set</button>
+                {/if}
             </li>
         </ul>
     </div>
@@ -169,6 +292,10 @@
 
         <button class="add-row" on:click={editorStore.addRow}>Add Row</button>
 
+        <!-- <pre>
+            {JSON.stringify($editorStore.postData, undefined, 4)}
+        </pre> -->
+
     </div>
 
     {#if $editorStore.editing}
@@ -211,6 +338,7 @@
         flex-flow: column nowrap;
         gap: 1rem;
         overflow: auto;
+        padding-bottom: 2rem;
     }
 
     .rows {
@@ -277,6 +405,16 @@
         background-color: var(--teal);
         border: none;
         padding: .5rem;
+        width: fit-content;
+        align-self: center;
+    }
+
+    .pdf-upload {
+        visibility: hidden;
+    }
+
+    .pdf-upload-label {
+        cursor: pointer;
     }
 
 </style>

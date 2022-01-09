@@ -1,11 +1,7 @@
 import type { JournalPost } from '$lib/types/journal'
-
-import * as admin from 'firebase-admin'
-import '$lib/firebase/firebase-admin'
+import { db } from '$lib/firebase/firebase-admin'
 
 export async function get() {
-
-    var db = admin.firestore()
 
     const journalsRef = db.collection('Journals')
 
@@ -37,22 +33,15 @@ export async function post( request ) {
 
     const post: JournalPost = request.body
 
-    /* if ( !title || ! body ) {
-        return {
-            status: 400,
-            body: {
-                message: "Must contain a title and body."
-            }
-        }
-    } */
-    const newPostData = await admin.firestore().collection('Journal Data').doc(post.id).set({
+
+    const newPostData = await db.collection('Journal Data').doc(post.id).set({
         postId: post.id,
         content: post.content
     })
 
     delete post.content
 
-    const newPost = await admin.firestore().collection('Journals').doc(post.id).set({...post})
+    const newPost = await db.collection('Journals').doc(post.id).set({...post})
 
 
     return {

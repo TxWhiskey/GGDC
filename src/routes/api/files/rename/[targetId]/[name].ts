@@ -1,7 +1,5 @@
 import * as admin from 'firebase-admin'
-import '$lib/firebase/firebase-admin'
-
-const db = admin.firestore()
+import { db } from '$lib/firebase/firebase-admin'
 
 export async function patch( req ) {
 
@@ -45,7 +43,7 @@ export async function patch( req ) {
         }
     }
 
-    /* Update File Name */
+    // Update File Name
     if ( fileExists ) {
 
         const fileRef = filesRef.doc(targetId)
@@ -63,7 +61,7 @@ export async function patch( req ) {
 
     } 
 
-    /* Update Folder Name */
+    // Update Folder Name
 
     const folderRef = foldersRef.doc(targetId)
 

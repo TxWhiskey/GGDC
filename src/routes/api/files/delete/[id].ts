@@ -1,9 +1,9 @@
 import * as admin from 'firebase-admin'
-import '$lib/firebase/firebase-admin'
+
+import { db } from '$lib/firebase/firebase-admin'
 
 import { writeBatch } from 'firebase/firestore'
 
-const db = admin.firestore()
 
 export async function del( req ) {
 
@@ -64,7 +64,7 @@ export async function del( req ) {
 
     const batch = db.batch()
 
-    /* Child Folder Deletion Logic */
+    // Child Folder Deletion Logic
 
     const foldersForDeletion = await foldersRef.where( "folderPath", 'array-contains', targetId ).get()
 
@@ -76,7 +76,7 @@ export async function del( req ) {
         batch.delete( snapshot.ref )
     })
 
-    /* Child File Deletion Logic */
+    // Child File Deletion Logic
 
     const filesForDeletion = await filesRef.where( "folderPath", 'array-contains', targetId ).get()
 
@@ -86,7 +86,7 @@ export async function del( req ) {
         batch.delete( snapshot.ref )
     })
 
-    /* Delete Target Folder */
+    //Delete Target Folder
     batch.delete(foldersRef.doc(targetId))
 
     await batch.commit()

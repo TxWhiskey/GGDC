@@ -219,9 +219,9 @@ function initStore() {
 
                 s.postData.content[rowIndex].columns[columnIndex].items.push( newItem )
 
-                s.selected = { rowId, columnId, itemId, item: newItem }
+                /* s.selected = { rowId, columnId, itemId, item: newItem }
 
-                s.editing = true
+                s.editing = true */
 
                 return s
 
@@ -262,6 +262,8 @@ function initStore() {
             update( s => {
 
                 let item = s.postData.content.find( r => r.id == rowId).columns.find( c => c.id == columnId).items.find( i => i.id == itemId)
+
+                //console.log(item.payload);
 
                 s.selected = { rowId, columnId, itemId, item }
                 s.editing = true
