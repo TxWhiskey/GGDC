@@ -1,7 +1,5 @@
+import adapter from '@sveltejs/adapter-netlify';
 import preprocess from 'svelte-preprocess';
-import firebase from "svelte-adapter-firebase";
-
-//import adapter from '@sveltejs/adapter-static';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -10,8 +8,11 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
+		adapter: adapter({
+			split:false
+		}),
+
 		// hydrate the <div id="svelte"> element in src/app.html
-		adapter: firebase(),
 		target: '#svelte'
 	}
 };

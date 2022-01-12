@@ -22,22 +22,22 @@
         </h1>
     <ul class="nav-items" class:hide-nav={!showNav}>
         <li class="nav-item">
-            <a href="/" class="nav-link hide-home" class:show-home={$page.path != '/'} on:click={toggleNav}>Home</a>
+            <a href="/" class="nav-link hide-home" class:show-home={$page.url.pathname != '/'} on:click={toggleNav}>Home</a>
         </li>
         <li class="nav-item">
-            <a href="/about" class="nav-link" class:active={$page.path === '/about'} on:click={toggleNav}>About</a>
+            <a href="/about" class="nav-link" class:active={$page.url.pathname === '/about'} on:click={toggleNav}>About</a>
         </li>
         <li class="nav-item">
-            <a href="/capabilities" class="nav-link" class:active={$page.path === '/capabilities'} on:click={toggleNav}>Capabilities</a>
+            <a href="/capabilities" class="nav-link" class:active={$page.url.pathname === '/capabilities'} on:click={toggleNav}>Capabilities</a>
         </li>
         <li class="nav-item">
-            <a href="/experience" class="nav-link" class:active={$page.path === '/experience'} on:click={toggleNav}>Experience</a>
+            <a href="/experience" class="nav-link" class:active={$page.url.pathname === '/experience'} on:click={toggleNav}>Experience</a>
         </li>
         <li class="nav-item">
-            <a href="/journal" class="nav-link" class:active={$page.path === '/journal'} on:click={toggleNav}>Journal</a>
+            <a href="/journal" class="nav-link" class:active={$page.url.pathname === '/journal'} on:click={toggleNav}>Journal</a>
         </li>
         <li class="nav-item">
-            <a href="/connect" class="nav-link" class:active={$page.path === '/connect'} on:click={toggleNav}>Let's Connect</a>
+            <a href="/connect" class="nav-link" class:active={$page.url.pathname === '/connect'} on:click={toggleNav}>Let's Connect</a>
         </li>
     </ul>
 </nav>

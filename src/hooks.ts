@@ -6,9 +6,9 @@ import '$lib/firebase/firebase-admin'
 
 export const handle = async ( { request, resolve } ) => {
 
-    console.log(request.path);
+    console.log(request.url.pathname);
     
-    console.log(`Handling request to path: ${request.path}`)
+    console.log(`Handling request to path: ${request.url.pathname}`)
 
 
     // Inbound Logic

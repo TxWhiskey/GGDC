@@ -44,6 +44,13 @@
                 <h4 class="post-header">One Homeowner’s Lessons Learned </h4>
             </a>
         </li>
+        <li class="journal-post">
+            <!-- svelte-ignore a11y-missing-content -->
+            <a href="/journal/posts/insight" class="post-link">
+                <div class="post-image" style="background-image: url(/blogs/insight/Pathricia-Paloma.JPG)"></div>
+                <h4 class="post-header">Insight into 3 Houston Interior Designers: Part 1</h4>
+            </a>
+        </li>
     </ul>
 </div>
 

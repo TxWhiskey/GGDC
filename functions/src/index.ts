@@ -1,12 +1,9 @@
+import * as admin from 'firebase-admin'
 import * as functions from "firebase-functions";
 
-import { initializeApp } from 'firebase-admin/app'
-import { getFirestore,  } from 'firebase-admin/firestore'
-import { ServerValue } from 'firebase-admin/database'
+admin.initializeApp()
 
-const app = initializeApp()
-
-const db = getFirestore(app)
+const db = admin.firestore()
 
 import nodemailer = require('nodemailer');
 
@@ -16,15 +13,17 @@ const cors = require('cors')({
 
 exports.submitSurvey = functions.https.onRequest( (req: functions.https.Request , res: functions.Response ) => {
 
-    cors( req, res, () => {
+    cors( req, res, async () => {
 
         const surveyResponse = req.body.selection
 
-        db.collection('surveyResponses').add({
+        const doc = await db.collection('surveyResponses').add({
             surveyNumber: 12,
             response: surveyResponse,
-            timestamp: ServerValue.TIMESTAMP
-        }).then( r => res.send(r))
+            timestamp: admin.firestore.Timestamp.now()
+        })
+
+        res.send((await doc.get()).data())
 
     })
 
@@ -98,14 +97,14 @@ exports.handleFormSubmit = functions.https.onRequest( ( req: functions.https.Req
 
 })
 
-let ssrServerServer: any
+// let ssrServerServer: any
 
-exports.ssrServer = functions.region("us-central1").https.onRequest(async (request, response) => {
-    if (!ssrServerServer) {
-            functions.logger.info("Initialising SvelteKit SSR entry");
-            ssrServerServer = require("./ssrServer/index").default;
-            functions.logger.info("SvelteKit SSR entry initialised!");
-    }
-    functions.logger.info("Requested resource: " + request.originalUrl);
-    return ssrServerServer(request, response);
-});
+// exports.ssrServer = functions.region("us-central1").https.onRequest(async (request, response) => {
+//     if (!ssrServerServer) {
+//             functions.logger.info("Initialising SvelteKit SSR entry");
+//             ssrServerServer = require("./ssrServer/index").default;
+//             functions.logger.info("SvelteKit SSR entry initialised!");
+//     }
+//     functions.logger.info("Requested resource: " + request.originalUrl);
+//     return ssrServerServer(request, response);
+// });
