@@ -10,7 +10,6 @@ export const handle = async ( { request, resolve } ) => {
     
     console.log(`Handling request to path: ${request.url.pathname}`)
 
-
     // Inbound Logic
 
         const cookies = cookie.parse(request.headers.cookie || '')
