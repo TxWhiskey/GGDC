@@ -54,6 +54,9 @@ const Journal = (0, import_index_8e09b0bf.c)(($$result, $$props, $$bindings, slo
                 <h4 class="${"post-header svelte-18iq73e"}">One Homeowner\u2019s Lessons Learned </h4></a></li>
         <li class="${"journal-post svelte-18iq73e"}">
             <a href="${"/journal/posts/insight"}" class="${"post-link svelte-18iq73e"}"><div class="${"post-image svelte-18iq73e"}" style="${"background-image: url(/blogs/insight/Pathricia-Paloma.JPG)"}"></div>
-                <h4 class="${"post-header svelte-18iq73e"}">Insight into 3 Houston Interior Designers: Part 1</h4></a></li></ul>
+                <h4 class="${"post-header svelte-18iq73e"}">Insight into 3 Houston Interior Designers: Part 1</h4></a></li>
+        <li class="${"journal-post svelte-18iq73e"}">
+            <a href="${"/journal/posts/35questions"}" class="${"post-link svelte-18iq73e"}"><div class="${"post-image svelte-18iq73e"}" style="${"background-image: url(/blogs/35questions/beams.jpg)"}"></div>
+                <h4 class="${"post-header svelte-18iq73e"}">35 Questions to Ask Potential Builders Before You Hire Them</h4></a></li></ul>
 </div>`;
 });

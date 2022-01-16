@@ -26,10 +26,10 @@ __export(exports, {
 });
 const manifest = {
   appDir: "_app",
-  assets: new Set(["blogs/firstimpressions/blueprint.png", "blogs/firstimpressions/Bob & Framer at Piedmont.jpg", "blogs/firstimpressions/DSC07350.png", "blogs/firstimpressions/First Impression is the Last Impression.pdf", "blogs/georgiagrace/GeorgiaGrace.mp3", "blogs/georgiagrace/GeorgiaGrace.pdf", "blogs/georgiagrace/PatriciaSims.jpg", "blogs/georgiagrace/PatriciaSims.png", "blogs/georgiagrace/Piedmont.jpg", "blogs/georgiagrace/Piedmont2.jpg", "blogs/gettingstartedchecklist/Blog2Audio.mp3", "blogs/gettingstartedchecklist/Finance Institution.png", "blogs/gettingstartedchecklist/Foundation.JPG", "blogs/gettingstartedchecklist/GettingStartedChecklist.pdf", "blogs/gettingstartedchecklist/HomeComplete.jpg", "blogs/gettingstartedchecklist/HomeUnderConstruction.jpg", "blogs/gettingstartedchecklist/Patricia.jpg", "blogs/gettingstartedchecklist/PatriciaAndBob.jpg", "blogs/insight/LakeForest1.jpg", "blogs/insight/LakeForest2.jpg", "blogs/insight/LakeForest3.jpg", "blogs/insight/LakeForest4.jpg", "blogs/insight/Paloma Contreras Q&A.pdf", "blogs/insight/Paloma-Portrait.jpg", "blogs/insight/Pathricia-Paloma.JPG", "blogs/lessonslearned/A Homeowner's Lessons Learned.pdf", "blogs/lessonslearned/bob & me.jpg", "blogs/lessonslearned/Headshot-Circle.png", "blogs/lessonslearned/Truss Photo (Large) (1).png", "blogs/lessonslearned/Truss Photo (Large) (2).png", "blogs/lessonslearned/Truss Photo (Large).png", "blogs/lessonslearned/Truss Photo.png", "blogs/lessonslearned/Truss.JPG", "documents/Services & Pricing Guide for Builders.pdf", "documents/Services & Pricing Guide for Homeowners.pdf", "favicon.png", "favicon.svg", "icons/plus.svg", "images/bio.jpg", "images/gg-square.png", "images/GG-Square.svg", "images/GG-Stacked.png", "images/GG-Stacked.svg", "images/hero-house.jpg", "images/home/architecture.jpeg", "images/home/awning-construction.jpeg", "images/home/beams.jpg", "images/home/closet.jpeg", "images/home/dining.jpeg", "images/home/dream-house.jpg", "images/home/elevation-construction.jpeg", "images/home/entry.jpeg", "images/home/exterior-2.jpeg", "images/home/exterior-construction-1.jpg", "images/home/exterior-construction-2.jpg", "images/home/exterior.jpg", "images/home/formal-living.jpeg", "images/home/hall.jpeg", "images/home/kitchen-1.jpeg", "images/home/kitchen-2.jpeg", "images/home/kitchen-4.jpg", "images/home/sink.jpg", "images/home/stairs.jpeg", "images/no-image.jpg"]),
+  assets: new Set(["blogs/35questions/beams.jpg", "blogs/35questions/Builder Questionnaire Blog Post.pdf", "blogs/firstimpressions/blueprint.png", "blogs/firstimpressions/Bob & Framer at Piedmont.jpg", "blogs/firstimpressions/DSC07350.png", "blogs/firstimpressions/First Impression is the Last Impression.pdf", "blogs/georgiagrace/GeorgiaGrace.mp3", "blogs/georgiagrace/GeorgiaGrace.pdf", "blogs/georgiagrace/PatriciaSims.jpg", "blogs/georgiagrace/PatriciaSims.png", "blogs/georgiagrace/Piedmont.jpg", "blogs/georgiagrace/Piedmont2.jpg", "blogs/gettingstartedchecklist/Blog2Audio.mp3", "blogs/gettingstartedchecklist/Finance Institution.png", "blogs/gettingstartedchecklist/Foundation.JPG", "blogs/gettingstartedchecklist/GettingStartedChecklist.pdf", "blogs/gettingstartedchecklist/HomeComplete.jpg", "blogs/gettingstartedchecklist/HomeUnderConstruction.jpg", "blogs/gettingstartedchecklist/Patricia.jpg", "blogs/gettingstartedchecklist/PatriciaAndBob.jpg", "blogs/insight/LakeForest1.jpg", "blogs/insight/LakeForest2.jpg", "blogs/insight/LakeForest3.jpg", "blogs/insight/LakeForest4.jpg", "blogs/insight/Paloma Contreras Q&A.pdf", "blogs/insight/Paloma-Portrait.jpg", "blogs/insight/Pathricia-Paloma.JPG", "blogs/lessonslearned/A Homeowner's Lessons Learned.pdf", "blogs/lessonslearned/bob & me.jpg", "blogs/lessonslearned/Headshot-Circle.png", "blogs/lessonslearned/Truss Photo (Large) (1).png", "blogs/lessonslearned/Truss Photo (Large) (2).png", "blogs/lessonslearned/Truss Photo (Large).png", "blogs/lessonslearned/Truss Photo.png", "blogs/lessonslearned/Truss.JPG", "documents/Services & Pricing Guide for Builders.pdf", "documents/Services & Pricing Guide for Homeowners.pdf", "favicon.png", "favicon.svg", "icons/plus.svg", "images/bio.jpg", "images/gg-square.png", "images/GG-Square.svg", "images/GG-Stacked.png", "images/GG-Stacked.svg", "images/hero-house.jpg", "images/home/architecture.jpeg", "images/home/awning-construction.jpeg", "images/home/beams.jpg", "images/home/closet.jpeg", "images/home/dining.jpeg", "images/home/dream-house.jpg", "images/home/elevation-construction.jpeg", "images/home/entry.jpeg", "images/home/exterior-2.jpeg", "images/home/exterior-construction-1.jpg", "images/home/exterior-construction-2.jpg", "images/home/exterior.jpg", "images/home/formal-living.jpeg", "images/home/hall.jpeg", "images/home/kitchen-1.jpeg", "images/home/kitchen-2.jpeg", "images/home/kitchen-4.jpg", "images/home/sink.jpg", "images/home/stairs.jpeg", "images/no-image.jpg"]),
   _: {
-    mime: { ".png": "image/png", ".jpg": "image/jpeg", ".pdf": "application/pdf", ".mp3": "audio/mpeg", ".JPG": "image/jpeg", ".svg": "image/svg+xml", ".jpeg": "image/jpeg" },
-    entry: { "file": "start-eb9e1971.js", "js": ["start-eb9e1971.js", "chunks/vendor-244337ad.js", "chunks/singletons-a42a5e91.js"], "css": ["assets/start-61d1577b.css"] },
+    mime: { ".jpg": "image/jpeg", ".pdf": "application/pdf", ".png": "image/png", ".mp3": "audio/mpeg", ".JPG": "image/jpeg", ".svg": "image/svg+xml", ".jpeg": "image/jpeg" },
+    entry: { "file": "start-026a6b83.js", "js": ["start-026a6b83.js", "chunks/vendor-244337ad.js", "chunks/singletons-a42a5e91.js"], "css": ["assets/start-61d1577b.css"] },
     nodes: [
       () => Promise.resolve().then(() => __toModule(require("./nodes/0.js"))),
       () => Promise.resolve().then(() => __toModule(require("./nodes/1.js"))),
@@ -52,7 +52,8 @@ const manifest = {
       () => Promise.resolve().then(() => __toModule(require("./nodes/18.js"))),
       () => Promise.resolve().then(() => __toModule(require("./nodes/19.js"))),
       () => Promise.resolve().then(() => __toModule(require("./nodes/20.js"))),
-      () => Promise.resolve().then(() => __toModule(require("./nodes/21.js")))
+      () => Promise.resolve().then(() => __toModule(require("./nodes/21.js"))),
+      () => Promise.resolve().then(() => __toModule(require("./nodes/22.js")))
     ],
     routes: [
       {
@@ -145,10 +146,18 @@ const manifest = {
       },
       {
         type: "page",
+        pattern: /^\/journal\/posts\/35questions\/?$/,
+        params: null,
+        path: "/journal/posts/35questions",
+        a: [0, 13],
+        b: [1]
+      },
+      {
+        type: "page",
         pattern: /^\/journal\/posts\/insight\/?$/,
         params: null,
         path: "/journal/posts/insight",
-        a: [0, 13],
+        a: [0, 14],
         b: [1]
       },
       {
@@ -156,7 +165,7 @@ const manifest = {
         pattern: /^\/about\/?$/,
         params: null,
         path: "/about",
-        a: [0, 14],
+        a: [0, 15],
         b: [1]
       },
       {
@@ -164,7 +173,7 @@ const manifest = {
         pattern: /^\/admin\/?$/,
         params: null,
         path: "/admin",
-        a: [0, 15, 16],
+        a: [0, 16, 17],
         b: [1]
       },
       {
@@ -172,7 +181,7 @@ const manifest = {
         pattern: /^\/admin\/portal\/?$/,
         params: null,
         path: "/admin/portal",
-        a: [17, 18],
+        a: [18, 19],
         b: []
       },
       {
@@ -180,7 +189,7 @@ const manifest = {
         pattern: /^\/admin\/portal\/journal\/?$/,
         params: null,
         path: "/admin/portal/journal",
-        a: [17, 19],
+        a: [18, 20],
         b: []
       },
       {
@@ -188,7 +197,7 @@ const manifest = {
         pattern: /^\/admin\/portal\/journal\/edit\/([^/]+?)\/?$/,
         params: (m) => ({ id: m[1] }),
         path: null,
-        a: [17, 20],
+        a: [18, 21],
         b: []
       },
       {
@@ -196,7 +205,7 @@ const manifest = {
         pattern: /^\/admin\/login\/?$/,
         params: null,
         path: "/admin/login",
-        a: [0, 15, 21],
+        a: [0, 16, 22],
         b: [1]
       },
       {

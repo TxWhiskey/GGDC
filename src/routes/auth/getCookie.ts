@@ -1,6 +1,7 @@
+import '$lib/firebase/firebase-admin'
+
 import * as admin from 'firebase-admin'
 
-import '$lib/firebase/firebase-admin'
 
 import * as cookie from 'cookie'
 

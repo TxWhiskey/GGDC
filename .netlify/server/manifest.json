@@ -271,6 +271,17 @@
       "assets/entries/pages/journal/posts/georgiagrace.svelte-738af083.css"
     ]
   },
+  "src/routes/journal/posts/35questions.svelte": {
+    "file": "entries/pages/journal/posts/35questions.svelte.js",
+    "src": "src/routes/journal/posts/35questions.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-8e09b0bf.js"
+    ],
+    "css": [
+      "assets/entries/pages/journal/posts/35questions.svelte-a54c8a98.css"
+    ]
+  },
   "src/routes/journal/posts/insight.svelte": {
     "file": "entries/pages/journal/posts/insight.svelte.js",
     "src": "src/routes/journal/posts/insight.svelte",

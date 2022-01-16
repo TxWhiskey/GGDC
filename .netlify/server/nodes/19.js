@@ -27,7 +27,7 @@ __export(exports, {
   js: () => js,
   module: () => module2
 });
-var module2 = __toModule(require("../entries/pages/admin/portal/journal/index.svelte.js"));
-const entry = "pages/admin/portal/journal/index.svelte-cc31adc7.js";
-const js = ["pages/admin/portal/journal/index.svelte-cc31adc7.js", "chunks/vendor-244337ad.js"];
-const css = ["assets/pages/admin/portal/journal/index.svelte-b6bf7c67.css"];
+var module2 = __toModule(require("../entries/pages/admin/portal/index.svelte.js"));
+const entry = "pages/admin/portal/index.svelte-cada3c31.js";
+const js = ["pages/admin/portal/index.svelte-cada3c31.js", "chunks/vendor-244337ad.js"];
+const css = ["assets/pages/admin/portal/index.svelte-e81b1f0d.css"];

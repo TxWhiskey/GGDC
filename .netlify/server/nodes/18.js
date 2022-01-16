@@ -27,7 +27,7 @@ __export(exports, {
   js: () => js,
   module: () => module2
 });
-var module2 = __toModule(require("../entries/pages/admin/portal/index.svelte.js"));
-const entry = "pages/admin/portal/index.svelte-cada3c31.js";
-const js = ["pages/admin/portal/index.svelte-cada3c31.js", "chunks/vendor-244337ad.js"];
-const css = ["assets/pages/admin/portal/index.svelte-e81b1f0d.css"];
+var module2 = __toModule(require("../entries/pages/admin/portal/__layout.reset.svelte.js"));
+const entry = "pages/admin/portal/__layout.reset.svelte-c864c639.js";
+const js = ["pages/admin/portal/__layout.reset.svelte-c864c639.js", "chunks/vendor-244337ad.js", "chunks/stores-edfd53dc.js", "chunks/auth-13668106.js", "chunks/firebase-0599ef83.js", "chunks/navigation-c71191e7.js", "chunks/singletons-a42a5e91.js"];
+const css = ["assets/pages/admin/portal/__layout.reset.svelte-9516d65d.css", "assets/app-63ab5de8.css"];

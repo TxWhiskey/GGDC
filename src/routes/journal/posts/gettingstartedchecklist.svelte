@@ -41,7 +41,7 @@
     <div class="row">
         <div class="col">
             <h1 class="blog-title">
-                Buying or Renovating a Home In Houston, TX: Your Key Player Checklist to Get You Started
+                Building or Renovating a Home In Houston, TX: Your Key Player Checklist to Get You Started
             </h1>
         </div>
     </div>

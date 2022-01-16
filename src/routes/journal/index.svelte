@@ -51,6 +51,13 @@
                 <h4 class="post-header">Insight into 3 Houston Interior Designers: Part 1</h4>
             </a>
         </li>
+        <li class="journal-post">
+            <!-- svelte-ignore a11y-missing-content -->
+            <a href="/journal/posts/35questions" class="post-link">
+                <div class="post-image" style="background-image: url(/blogs/35questions/beams.jpg)"></div>
+                <h4 class="post-header">35 Questions to Ask Potential Builders Before You Hire Them</h4>
+            </a>
+        </li>
     </ul>
 </div>
 

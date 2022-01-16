@@ -24,9 +24,18 @@ function initApp() { */
 
 export const fbAdmin = admin */
 
+
 import { initializeApp, applicationDefault, cert } from 'firebase-admin/app'
 import { getFirestore } from 'firebase-admin/firestore'
 
-export const app = initializeApp()
+console.log(import.meta.env.VITE_FIREBASE_SERVICE_ACCOUNT_KEY);
+const serviceAccount = JSON.parse(import.meta.env.VITE_FIREBASE_SERVICE_ACCOUNT_KEY as string)
+
+
+
+export const app = initializeApp({
+    credential: cert(serviceAccount),
+    databaseURL: "https://georgia-grace-design-collab-default-rtdb.firebaseio.com"
+})
 
 export const db = getFirestore(app)
