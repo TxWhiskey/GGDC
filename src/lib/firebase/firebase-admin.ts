@@ -28,10 +28,13 @@ export const fbAdmin = admin */
 import { initializeApp, applicationDefault, cert } from 'firebase-admin/app'
 import { getFirestore } from 'firebase-admin/firestore'
 
-console.log(import.meta.env.VITE_FIREBASE_SERVICE_ACCOUNT_KEY);
-const serviceAccount = JSON.parse(import.meta.env.VITE_FIREBASE_SERVICE_ACCOUNT_KEY as string)
+import dotenv from 'dotenv'
 
+dotenv.config()
 
+const serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_KEY as string)
+
+// export const app = initializeApp()
 
 export const app = initializeApp({
     credential: cert(serviceAccount),
