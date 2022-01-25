@@ -13,7 +13,7 @@
     
     <div class="row">
         <h3 class="title">Item Config</h3>
-        <ItemControls rowId={$editorStore.selected.rowId} columnId={$editorStore.selected.columnId} itemId={$editorStore.selected.itemId}></ItemControls>
+        <ItemControls itemId={$editorStore.selected.itemId}></ItemControls>
     </div>
 
     <svelte:component this={component}/>
@@ -23,12 +23,10 @@
 <style>
 
     .editor {
-        border-top: thin solid var(--teal);
         padding: 1rem;
         display: flex;
         flex-flow: column nowrap;
         gap: .5rem;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
     }
 
     .row {

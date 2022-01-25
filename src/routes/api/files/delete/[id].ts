@@ -5,7 +5,7 @@ import { db } from '$lib/firebase/firebase-admin'
 import { writeBatch } from 'firebase/firestore'
 
 
-export async function del( req ) {
+export async function del( {params} ) {
 
     /* if ( !request.locals.authenticated ) {
         return {
@@ -16,7 +16,7 @@ export async function del( req ) {
         }
     } */
 
-    const targetId = req.params.id
+    const targetId = params.id
 
     if ( (!targetId ) ) {
         return {

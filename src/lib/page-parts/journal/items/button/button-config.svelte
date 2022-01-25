@@ -4,15 +4,15 @@
     import type { PayloadButton } from './button-payload';
 
     let payload: PayloadButton = {
-        color: 'Teal',
+        color: 'teal',
         linkTo: '/',
         text: 'Call to Action'
     }
 
     let selected = null
 
-    let buttonStyles = [ 'Teal', 'Purple', 'Grey']
-    let selectedButtonStyle = 'Teal'
+    let buttonStyles = [ 'teal', 'purple', 'grey']
+    let selectedButtonStyle = 'teal'
 
     editorStore.subscribe( s => {
 
@@ -41,7 +41,7 @@
     
     <div class="control">
         <p>Style</p>
-        <select name="Button Types" id="button-selector" bind:value={selectedButtonStyle}>
+        <select name="Button Types" id="button-selector" bind:value={payload.color}>
             {#each buttonStyles as style}
             <option value={style}>{style}</option>
             {/each}
@@ -50,9 +50,8 @@
     
     <a href={payload.linkTo} target="_blank">Test Link</a>
 
-    <button on:click={ () => editorStore.updateItemPayload($editorStore.selected.rowId, $editorStore.selected.columnId, $editorStore.selected.itemId, payload)}>Set</button>
+    <button on:click={ () => editorStore.updateItemPayload( $editorStore.selected.itemId, payload)}>Set</button>
     <button on:click={editorStore.cancelEditItem}>Cancel</button>
-
 
 </div>
 
@@ -64,13 +63,13 @@
     }
 
     button, a {
-        font-weight: 400;
         border: none;
         display: flex;
         align-self: center;
         padding: .5rem;
         background-color: var(--light-grey);
         border-radius: 4px;
+        font-size: 1rem;
     }
 
 </style>

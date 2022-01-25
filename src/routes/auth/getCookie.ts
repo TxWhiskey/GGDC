@@ -5,7 +5,9 @@ import * as admin from 'firebase-admin'
 
 import * as cookie from 'cookie'
 
-export async function post({ body }) {
+export async function post( {request} ) {
+
+    let body = await request.json()
 
     const idToken = body.idToken
 

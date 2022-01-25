@@ -4,42 +4,51 @@ import * as cookie from 'cookie'
 
 import '$lib/firebase/firebase-admin'
 
-export const handle = async ( { request, resolve } ) => {
+export async function handle ( { event, resolve } ) {
 
-    console.log(request.url.pathname);
-    
-    console.log(`Handling request to path: ${request.url.pathname}`)
+    const ssr = !event.url.pathname.startsWith('/admin')
+
+    console.log({
+        path: event.url.pathname, 
+        ssr
+    });
 
     // Inbound Logic
 
-        const cookies = cookie.parse(request.headers.cookie || '')
+        const cookies = cookie.parse(event.request.headers.cookie || '')
 
         const sessionCookie = cookies.session || ''
 
         await admin.auth()
             .verifySessionCookie(sessionCookie, true)
             .then( (decodedClaims) => {
-                request.locals.user = decodedClaims
-                request.locals.authenticated = true
+                event.locals.user = decodedClaims
+                event.locals.authenticated = true
             })
             .catch( (err) => {
-                request.locals.user = null
-                request.locals.authenticated = false
+                event.locals.user = null
+                event.locals.authenticated = false
             })
 
     // Outbound Logic
-    const response = await resolve(request)
+    const response = await resolve(event, {ssr: !event.url.pathname.startsWith('/admin')})
 
-    return {
-        ...response
-    }
+    return response
 
 }
 
-export const getSession = async ( request ) => {
+export function getSession( event ) {
 
-    if (request.locals.authenticated) {
-        return {authenticated: true, user: request.locals.user}
+    console.log(event.locals);
+
+    let locals = event.locals
+
+    console.log("locals", locals);
+    
+    
+
+    if (event.locals.authenticated) {
+        return {authenticated: true, user: event.locals.user}
     } else {
         return {authenticated: false, user: null}
     }

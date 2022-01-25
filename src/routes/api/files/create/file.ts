@@ -1,7 +1,7 @@
 import * as admin from 'firebase-admin'
 import { db } from '$lib/firebase/firebase-admin'
 
-export async function post( request ) {
+export async function post( {request} ) {
 
     /* if ( !request.locals.authenticated ) {
         return {
@@ -12,10 +12,12 @@ export async function post( request ) {
         }
     } */
 
-    const path: string[] = request.body.path
-    const title: string = request.body.title
-    const url: string = request.body.url
-    const type: string = request.body.type
+    const body = await request.json()
+
+    const path: string[] = body.path
+    const title: string = body.title
+    const url: string = body.url
+    const type: string = body.type
 
     if ( (!path || !(Array.isArray(path)) && title ) || !url || !type ) {
         return {

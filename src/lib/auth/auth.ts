@@ -51,7 +51,6 @@ export async function logout() {
     session.set( {user: null} )
     goto( '/admin/login' )
 
-
 }
 
 export function authGuard( path: string, session ) {

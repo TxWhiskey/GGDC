@@ -1,8 +1,8 @@
 <script lang="ts">
 
-    import type { ImageItemPayload } from "$lib/types/journal";
+    import type { PayloadImage } from "./image-payload";
 
-    export let payload: ImageItemPayload
+    export let payload: PayloadImage
 
 </script>
 

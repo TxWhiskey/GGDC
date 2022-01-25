@@ -2,9 +2,9 @@ import type { JournalPost } from '$lib/types/journal'
 
 import { db } from '$lib/firebase/firebase-admin'
 
-export async function get( request ) {
+export async function get( { params } ) {
 
-    const id = request.params.id
+    const id = params.id
 
     // Journal Info
 
@@ -45,9 +45,9 @@ export async function get( request ) {
 
 }
 
-export async function del( request ) {
+export async function del( {params} ) {
 
-    const id = request.params.id
+    const id = params.id
 
     // Journal
 

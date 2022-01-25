@@ -5,15 +5,19 @@
 
     export let payload: PayloadButton
 
+    function getPayloadClass() {
+        return payload.color
+    }
+
 </script>
 
 <div>
     
-    <button>
+    <button class={payload.color}>
         {#if payload}
         {payload.text}
         {:else}
-        No Text
+        - No Text -
         {/if}
     </button>
 
@@ -30,12 +34,25 @@
         display: flex;
         align-items: center;
         justify-self: center;
-        background-color: var(--teal);
         color: white;
         padding: .5rem;
         border: none;
         font-size: 1rem;
         border-radius: 4px;
+        font-weight: 400;
+    }
+
+    .teal {
+        background-color: var(--teal);
+    }
+
+    .purple {
+        background-color: var(--purple);
+    }
+
+    .grey {
+        background-color: var(--light-grey);
+        color: var(--grey);
     }
 
 </style>

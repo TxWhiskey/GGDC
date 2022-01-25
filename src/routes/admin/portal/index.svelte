@@ -48,4 +48,8 @@
         border-radius: 4px;
     }
 
+    a {
+        color: white;
+    }
+
 </style>

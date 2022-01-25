@@ -20,7 +20,7 @@ export async function get() {
 
 }
 
-export async function post( request ) {
+export async function post( {request} ) {
 
     /* if ( !request.locals.authenticated ) {
         return {
@@ -31,8 +31,9 @@ export async function post( request ) {
         }
     } */
 
-    const post: JournalPost = request.body
+    const body = await request.json()
 
+    const post: JournalPost = body
 
     const newPostData = await db.collection('Journal Data').doc(post.id).set({
         postId: post.id,
@@ -42,7 +43,6 @@ export async function post( request ) {
     delete post.content
 
     const newPost = await db.collection('Journals').doc(post.id).set({...post})
-
 
     return {
         status: 200,

@@ -267,8 +267,8 @@ export function createFileExplorerViewState( ): FileExplorerStateControler<FileE
             update( v => {
                 v.uploadingFile = true
 
-                path = v.path
-                newFileTitle = v.newFileTitle
+                path = v.path.map( p => p.id )
+                newFileTitle = v.renameFileTitle || v.newFileTitle
 
                 return v
             })

@@ -6,8 +6,6 @@
 
     import type { Item } from '$lib/types/journal';
 
-    export let rowId: string
-    export let columnId: string
     export let item: Item
 
     $: component = itemLibrary.find( o => o.title == item.type ).previewComponent
@@ -16,7 +14,7 @@
 
 </script>
 
-<div class="item" on:click={ () => editorStore.selectEditItem( rowId, columnId, item.id )}>
+<div class="item" on:click={ () => editorStore.selectEditItem( item.id )}>
     <svelte:component this={component} bind:this={config} payload={item.payload}/>
 </div>
 

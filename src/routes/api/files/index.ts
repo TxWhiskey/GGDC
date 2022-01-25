@@ -2,7 +2,7 @@ import * as admin from 'firebase-admin'
 
 import { db } from '$lib/firebase/firebase-admin'
 
-export async function post( request ) {
+export async function post( {request} ) {
 
     /* if ( !request.locals.authenticated ) {
         return {
@@ -13,7 +13,9 @@ export async function post( request ) {
         }
     } */
 
-    const requestedPath: string[] = request.body.path
+    const body = await request.json()
+
+    const requestedPath: string[] = body.path
 
     if ( !requestedPath || !(Array.isArray(requestedPath)) ) {
         return {
@@ -25,6 +27,9 @@ export async function post( request ) {
     }
 
     requestedPath.splice(0, 0, 'Media Library')
+
+    console.log(requestedPath);
+    
 
     let folderContents = {
         path: [],

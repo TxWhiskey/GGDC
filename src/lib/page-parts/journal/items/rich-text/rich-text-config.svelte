@@ -50,7 +50,7 @@
 
 <div class="controls">
 
-    <button on:click={ () => editorStore.updateItemPayload($editorStore.selected.rowId, $editorStore.selected.columnId, $editorStore.selected.itemId, {content: text})}>Set</button>
+    <button on:click={ () => editorStore.updateItemPayload( $editorStore.selected.itemId, {content: text} )}>Set</button>
     <button on:click={editorStore.cancelEditItem}>Cancel</button>
     <button on:click={toggleHeight}>Expand</button>
 

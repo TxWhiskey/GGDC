@@ -16,7 +16,7 @@ export async function get() {
     }
 }
 
-export async function post( request ) {
+export async function post( {request} ) {
 
     /* if ( !request.locals.authenticated ) {
         return {
@@ -27,9 +27,11 @@ export async function post( request ) {
         }
     } */
 
-    const title: string = request.body.title
-    const url: string[] = request.body.url
-    const path = request.body.path
+    const body = await request.json()
+
+    const title: string = body.title
+    const url: string[] = body.url
+    const path = body.path
 
     if ( !title || ! url || !path ) {
         return {

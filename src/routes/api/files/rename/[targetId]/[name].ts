@@ -1,7 +1,7 @@
 import * as admin from 'firebase-admin'
 import { db } from '$lib/firebase/firebase-admin'
 
-export async function patch( req ) {
+export async function patch( { params } ) {
 
     /* if ( !request.locals.authenticated ) {
         return {
@@ -12,8 +12,8 @@ export async function patch( req ) {
         }
     } */
 
-    const targetId = req.params.targetId
-    const name = req.params.name
+    const targetId = params.targetId
+    const name = params.name
 
     if ( (!targetId || !name ) ) {
         return {
