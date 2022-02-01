@@ -208,6 +208,14 @@
     </div>
 
 
+    <div class="row">
+        <div class="col">
+            <a href="https://georgiagracecollaboration.hbportal.co/schedule/6163b3aee4a11230f3e34a24" target="_blank" class="cta-btn cta-btn-min">
+                Schedule A Discovery Call
+            </a>
+        </div>
+    </div>
+
 
 </div>
 
