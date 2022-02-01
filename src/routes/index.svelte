@@ -82,9 +82,6 @@
 
 <style>
 
-    :root{
-    }
-
     .hero {
         min-height: 150px;
         height: calc(100vh - var(--nav-height));
@@ -197,85 +194,6 @@
         /* text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.9); */
     }
 
-    .info-cta {
-        background-color: transparent;
-        color: var(--teal);
-        padding: 1.2em 2em;
-        border: 2px var(--teal) solid;
-        font-size: 1rem;
-        font-weight: 400;
-        cursor: pointer;
-        width: fit-content;
-        background-color: var(--teal);
-        color: white;
-        /* box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); */
-    }
-
-    .info-cta:hover {
-        background-color: var(--purple);
-        border-color: var(--purple);
-    }
-
-    .logo-contact {
-    }
-
-    .photo-section {
-        display:flex;
-        flex-direction: column wrap;
-        justify-content: center;
-        background-color: var(--teal);
-        padding: 100px 0;
-    }
-
-    .ps-alt {
-        background-color: var(--purple);
-        box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
-    }
-
-    .photo-section-container {
-        display: flex;
-        flex-direction: row wrap;
-        max-width: var(--standard-width);
-    }
-
-    .photo-section-text {
-        display: flex;
-        flex-flow: column wrap;
-        align-items: center;
-        justify-content: center;
-        gap: 2rem;
-        color: white;
-    }
-
-    .photo-section-text-header {
-        font-size: 2rem;
-        line-height: 1.4;
-        text-align: center;
-    }
-
-    .photo-section-text-content {
-        font-size: 1rem;
-        line-height: 1.4;
-        text-align: center;
-    }
-
-    .photo-section-text-cta {
-        color: White;
-        text-underline-offset: .25rem;
-    }
-
-    .photo-section-text-cta:hover {
-        color: black;
-    }
-
-    .photo-section-photo {
-        
-    }
-
-    .photo-section-photo-image {
-        max-width: 500px;
-    }
-
     .contact-info-section {
         display: flex;
         flex-flow: column wrap;
@@ -380,7 +298,6 @@
             text-align: left;
         }
 
-        .info-cta {}
     }
 
 </style>

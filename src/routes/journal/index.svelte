@@ -58,6 +58,13 @@
                 <h4 class="post-header">35 Questions to Ask Potential Builders Before You Hire Them</h4>
             </a>
         </li>
+        <li class="journal-post">
+            <!-- svelte-ignore a11y-missing-content -->
+            <a href="/journal/posts/insight-part-2" class="post-link">
+                <div class="post-image" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FInsights%20Part%202%2FPat-And-Pamela.jpg?alt=media&token=f00dd820-5068-4e64-b983-be6ce7680961)"></div>
+                <h4 class="post-header">Insight into 3 Houston Interior Designers Part 2</h4>
+            </a>
+        </li>
     </ul>
 </div>
 
