@@ -4,10 +4,5 @@ node_modules
 /.svelte-kit
 /package
 /build
-.env.local
 /Reference
-.env
-/src/routes/stripe
-/src/routes/bite-sized
-/src/lib/stripe
-/src/lib/bite-sized
+.env*
