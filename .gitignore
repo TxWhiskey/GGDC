@@ -6,3 +6,5 @@ node_modules
 /build
 /Reference
 .env*
+/.vercel_build_output
+/.firebase
