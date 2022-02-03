@@ -71,7 +71,7 @@
  
 <section class="contact-info-section">
     <div class="contact-info-container">
-        <img class="contact-info-logo" src="/images/GG-Square.svg" alt="">
+        <img class="contact-info-logo" src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Site%20Docs%2FGG-Square.svg?alt=media&token=99f7366f-a4fb-4095-9362-4015a5aafcf2" alt="">
         <div class="contact-info-split">
             <a href="mailto: Info@GGCollab.com" class="contact-info-item">Info@GGCollab.com</a>
             <a href="tel: 7132482987" class="contact-info-item">713.248.2987</a>
@@ -85,7 +85,7 @@
     .hero {
         min-height: 150px;
         height: calc(100vh - var(--nav-height));
-        background:  url('/images/hero-house.jpg'), rgba(72, 72, 72, 0.75);
+        background:  url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Site%20Docs%2Fhero-house.jpg?alt=media&token=615ccfe5-b8c3-40a0-8358-eda1acbb94a7'), rgba(72, 72, 72, 0.75);
         background-repeat: no-repeat;
         background-size: cover;
         background-blend-mode: multiply;

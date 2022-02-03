@@ -50,7 +50,7 @@
     <div class="row">
         <div class="col">
             <div class="media-controls">
-                <a href="/blogs/lessonslearned/A Homeowner's Lessons Learned.pdf" class="media-download" target="_blank">PDF Download</a>
+                <a href="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FLessons%20Learned%2FA%20Homeowner's%20Lessons%20Learned.pdf?alt=media&token=6616e1fa-e9df-4133-828b-30d634eb2d16" class="media-download" target="_blank">PDF Download</a>
                 <!-- <audio controls class='media-audio'>
                     <source src="/blogs/gettingstartedchecklist/Blog2Audio.mp3" type="audio/mpeg">
                 </audio> -->
@@ -120,7 +120,7 @@
 
     <div class="row">
         <div class="col">
-            <img class="blog-image" src="/blogs/lessonslearned/Truss.JPG" alt="How to onboard more clients as a Luxury Custom Home Builder in Houston? Discover here within the contents of this blog">
+            <img class="blog-image" src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FLessons%20Learned%2FTruss.JPG?alt=media&token=de211fd3-ede9-4fba-98b2-d6962cb9da4d" alt="How to onboard more clients as a Luxury Custom Home Builder in Houston? Discover here within the contents of this blog">
         </div>
     </div>
 
@@ -142,7 +142,7 @@
                     <b>A</b>: I asked about overall experience, if budgets were met, quality of work, and how warranty issues were handled.
                 </p>
                 <p class="blog-text">
-                    <b>Q</b>: Would you have benefited from a client advocate or client representative during the process of hiring a builder?  Checkout my <a href="/documents/Services%20&%20Pricing%20Guide%20for%20Homeowners.pdf" target="_blank">services and package guide</a> for reference.
+                    <b>Q</b>: Would you have benefited from a client advocate or client representative during the process of hiring a builder?  Checkout my <a href="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Site%20Docs%2FServices%20%26%20Pricing%20Guide%20for%20Homeowners.pdf?alt=media&token=1d0ed77d-80d4-4d2a-a67a-bfa52ae08955" target="_blank">services and package guide</a> for reference.
                 </p>
                 <p class="blog-text">
                     <b>A</b>: Yes, I think so.  While I’m quite “type A,” so I did a lot of this myself, it would have been really helpful to have someone with knowledge/industry experience to help me cover all of the bases as an additional checkpoint in working with the builder. 
@@ -166,7 +166,7 @@
 
     <div class="row">
         <div class="col">
-            <img class="blog-image" src="/blogs/lessonslearned/bob & me.jpg" alt="How to onboard more clients as a Luxury Custom Home Builder in Houston? Discover here within the contents of this blog">
+            <img class="blog-image" src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FLessons%20Learned%2Fbob%20%26%20me.jpg?alt=media&token=fe94f79c-7dda-4bc1-8f07-c93c9de63664" alt="How to onboard more clients as a Luxury Custom Home Builder in Houston? Discover here within the contents of this blog">
         </div>
     </div>
 
@@ -219,7 +219,7 @@
     <!-- Image -->
     <div class="row">
         <div class="col">
-            <div class="blog-image-container-circle" style="background-image: url('/blogs/lessonslearned/Headshot-Circle.png')">
+            <div class="blog-image-container-circle" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FLessons%20Learned%2FHeadshot-Circle.png?alt=media&token=b399b137-5df9-4169-8077-473ad782170b')">
             </div>
         </div>
     </div>

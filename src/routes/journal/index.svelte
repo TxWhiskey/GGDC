@@ -19,42 +19,42 @@
         <li class="journal-post">
             <!-- svelte-ignore a11y-missing-content -->
             <a href="/journal/posts/georgiagrace" class="post-link">
-                <div class="post-image" style="background-image: url(/images/home/exterior-construction-2.jpg)"></div>
+                <div class="post-image" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fexterior-construction-2.jpg?alt=media&token=4c083720-02df-4efb-b24f-e7796899f52b)"></div>
                 <h4 class="post-header">Connecting Homeowners With The Best Custom Home Builders</h4>
             </a>
         </li>
         <li class="journal-post">
             <!-- svelte-ignore a11y-missing-content -->
             <a href="/journal/posts/gettingstartedchecklist" class="post-link">
-                <div class="post-image" style="background-image: url(/blogs/gettingstartedchecklist/HomeUnderConstruction.jpg)"></div>
+                <div class="post-image" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FGetting%20Started%20Checklist%2FHomeUnderConstruction.jpg?alt=media&token=28d0133e-035c-4693-a665-e73857ed1c41)"></div>
                 <h4 class="post-header">Key Player Checklist to Get You Started Building or Renovating</h4>
             </a>
         </li>
         <li class="journal-post">
             <!-- svelte-ignore a11y-missing-content -->
             <a href="/journal/posts/firstimpressions" class="post-link">
-                <div class="post-image" style="background-image: url(/blogs/firstimpressions/DSC07350.png)"></div>
+                <div class="post-image" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FFirst%20Impressions%2FDSC07350.png?alt=media&token=30256703-4972-42b5-bf88-3c90362ff17f)"></div>
                 <h4 class="post-header">First Impression is the Last Impression</h4>
             </a>
         </li>
         <li class="journal-post">
             <!-- svelte-ignore a11y-missing-content -->
             <a href="/journal/posts/lessonslearned" class="post-link">
-                <div class="post-image" style="background-image: url(/blogs/lessonslearned/Truss.JPG)"></div>
+                <div class="post-image" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FLessons%20Learned%2FTruss.JPG?alt=media&token=de211fd3-ede9-4fba-98b2-d6962cb9da4d)"></div>
                 <h4 class="post-header">One Homeowner’s Lessons Learned </h4>
             </a>
         </li>
         <li class="journal-post">
             <!-- svelte-ignore a11y-missing-content -->
             <a href="/journal/posts/insight" class="post-link">
-                <div class="post-image" style="background-image: url(/blogs/insight/Pathricia-Paloma.JPG)"></div>
+                <div class="post-image" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FInsights%20Part%201%2FPathricia-Paloma.JPG?alt=media&token=f385e3ad-98a2-42cd-8315-8b20356aec50)"></div>
                 <h4 class="post-header">Insight into 3 Houston Interior Designers: Part 1</h4>
             </a>
         </li>
         <li class="journal-post">
             <!-- svelte-ignore a11y-missing-content -->
             <a href="/journal/posts/35questions" class="post-link">
-                <div class="post-image" style="background-image: url(/blogs/35questions/beams.jpg)"></div>
+                <div class="post-image" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2F35%20Questions%2Fbeams.jpg?alt=media&token=db92cf1e-a194-4e7b-8fa3-4bc0470c67b3)"></div>
                 <h4 class="post-header">35 Questions to Ask Potential Builders Before You Hire Them</h4>
             </a>
         </li>

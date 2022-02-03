@@ -53,7 +53,7 @@
     <div class="row">
         <div class="col">
             <div class="media-controls">
-                <a href="/blogs/insight/Paloma Contreras Q&A.pdf" class="media-download" target="_blank">PDF Download</a>
+                <a href="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FInsights%20Part%201%2FPaloma%20Contreras%20Q%26A.pdf?alt=media&token=619ea622-5a30-4f15-86ea-d1a79b5d941d" class="media-download" target="_blank">PDF Download</a>
                 <!-- <audio controls class='media-audio'>
                     <source src="/blogs/gettingstartedchecklist/Blog2Audio.mp3" type="audio/mpeg">
                 </audio> -->
@@ -80,7 +80,7 @@
 
     <div class="row">
         <div class="col">
-            <img class="blog-image" src="/blogs/insight/Pathricia-Paloma.JPG" alt="My first interview is with award-winning interior designer Paloma Contreras of Paloma Contreras Interior Design and Paloma & Co.">
+            <img class="blog-image" src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FInsights%20Part%201%2FPathricia-Paloma.JPG?alt=media&token=f385e3ad-98a2-42cd-8315-8b20356aec50" alt="My first interview is with award-winning interior designer Paloma Contreras of Paloma Contreras Interior Design and Paloma & Co.">
         </div>
     </div>
 
@@ -124,7 +124,7 @@
 
     <div class="row">
         <div class="col">
-            <img class="blog-image" src="/blogs/insight/LakeForest1.jpg" alt="Lofty dining area.">
+            <img class="blog-image" src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FInsights%20Part%201%2FLakeForest1.jpg?alt=media&token=715bc809-2c90-4417-acf1-a14ec8776b06" alt="Lofty dining area.">
         </div>
     </div>
 
@@ -147,7 +147,7 @@
 
     <div class="row">
         <div class="col">
-            <img class="blog-image" src="/blogs/insight/LakeForest2.jpg" alt="High gloss built-ins in Houston Texas">
+            <img class="blog-image" src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FInsights%20Part%201%2FLakeForest2.jpg?alt=media&token=89d3380f-38aa-4b36-a2f2-ae0f83917abf" alt="High gloss built-ins in Houston Texas">
         </div>
     </div>
 
@@ -170,7 +170,7 @@
 
     <div class="row">
         <div class="col">
-            <img class="blog-image" src="/blogs/insight/LakeForest3.jpg" alt="Brass sconce light fixture">
+            <img class="blog-image" src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FInsights%20Part%201%2FLakeForest3.jpg?alt=media&token=9f75b210-5394-4bd8-8974-5eb9987e372c" alt="Brass sconce light fixture">
         </div>
     </div>
 
@@ -193,7 +193,7 @@
 
     <div class="row">
         <div class="col">
-            <img class="blog-image" src="/blogs/insight/LakeForest4.jpg" alt="Well lit dining room with 7 chairs">
+            <img class="blog-image" src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FInsights%20Part%201%2FLakeForest4.jpg?alt=media&token=37ecdd46-54f1-404d-b7f6-e74c9af0f50c" alt="Well lit dining room with 7 chairs">
         </div>
     </div>
 
@@ -223,7 +223,7 @@
 
     <div class="row">
         <div class="col">
-            <img class="blog-image" src="/blogs/insight/Paloma-Portrait.jpg" alt="Well lit dining room with 7 chairs">
+            <img class="blog-image" src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FInsights%20Part%201%2FPaloma-Portrait.jpg?alt=media&token=8669b074-5cc3-43b1-aec9-55d99a2b7837" alt="Well lit dining room with 7 chairs">
         </div>
     </div>
 

@@ -82,7 +82,7 @@
     <div class="page-columns">
 
         <div class="form-section">
-            <img src="/images/GG-Square.svg" alt="" class="header-section-logo">
+            <img src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Site%20Docs%2FGG-Square.svg?alt=media&token=99f7366f-a4fb-4095-9362-4015a5aafcf2" alt="" class="header-section-logo">
             <h3 class="header-section-text">
                 Let's Connect!
             </h3>

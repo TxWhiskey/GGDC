@@ -50,7 +50,7 @@
     <div class="row">
         <div class="col">
             <div class="media-controls">
-                <a href="/blogs/firstimpressions/First Impression is the Last Impression.pdf" class="media-download" target="_blank">PDF Download</a>
+                <a href="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FFirst%20Impressions%2FFirst%20Impression%20is%20the%20Last%20Impression.pdf?alt=media&token=e8150f75-65c9-4ce3-bf4c-750a33111c7b" class="media-download" target="_blank">PDF Download</a>
                 <!-- <audio controls class='media-audio'>
                     <source src="/blogs/gettingstartedchecklist/Blog2Audio.mp3" type="audio/mpeg">
                 </audio> -->
@@ -61,7 +61,7 @@
     <!-- Header Image -->
     <div class="row">
         <div class="col">
-            <img class="blog-image" src="/blogs/firstimpressions/DSC07350.png" alt="How to onboard more clients as a Luxury Custom Home Builder in Houston? Discover here within the contents of this blog">
+            <img class="blog-image" src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FFirst%20Impressions%2FDSC07350.png?alt=media&token=30256703-4972-42b5-bf88-3c90362ff17f" alt="How to onboard more clients as a Luxury Custom Home Builder in Houston? Discover here within the contents of this blog">
         </div>
     </div>
 
@@ -119,7 +119,7 @@
 
             <h3 class="section-header">Things to Include in A Construction Budget for Building A Home in Houston</h3>
 
-            <img class="blog-image" src="/blogs/firstimpressions/blueprint.png" alt="Home Builders in Houston, TX may ask, what elements make for a good construction budget? Preparing an itemized proposal is indeed one, read here to discover the others">
+            <img class="blog-image" src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FFirst%20Impressions%2Fblueprint.png?alt=media&token=d25a23f3-25aa-40bf-be60-57d007a5ca2f" alt="Home Builders in Houston, TX may ask, what elements make for a good construction budget? Preparing an itemized proposal is indeed one, read here to discover the others">
 
         </div>
     </div>
@@ -306,7 +306,7 @@
     <!-- Image -->
     <div class="row">
         <div class="col">
-            <img class="blog-image" src="/blogs/firstimpressions/Bob & Framer at Piedmont.jpg" alt="As a home building consultant in Houston, this blog proves food for thought for luxury custom home builders in Houston looking to onboard new clientele immediately. ">
+            <img class="blog-image" src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FFirst%20Impressions%2FBob%20%26%20Framer%20at%20Piedmont.jpg?alt=media&token=a56bf823-bcdb-4f29-84bc-8f6764633897" alt="As a home building consultant in Houston, this blog proves food for thought for luxury custom home builders in Houston looking to onboard new clientele immediately. ">
         </div>
     </div>
 

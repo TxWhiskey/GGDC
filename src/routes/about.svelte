@@ -17,7 +17,7 @@
 
     
     <section class="about-info">
-        <img src="/images/GG-Stacked.svg" alt="" class="gg-logo">
+        <img src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Site%20Docs%2FGG-Stacked.svg?alt=media&token=6b672a03-98df-457d-9e21-3a1b1b0db261" alt="" class="gg-logo">
         <p class="about">
             Georgia Grace Collaboration is passionate about empowering our clients by providing sound advice, so you are confident making decisions during the construction of your home. Our priority is building lasting relationships with our clients and nurturing partnerships with expert builders and designers who share our passion for providing client satisfaction. Whether you’re planning a remodel or starting from the ground up, you can rest assured that we are on your side, at your side. We work shoulder to shoulder with you to ensure you have the right team in place and that your vision is completely integrated. 
         </p>
@@ -34,7 +34,7 @@
         <div class="bio">
             <div class="bio__header">
                 <div class="bio__media">
-                    <img src="/images/bio.jpg" alt="" class="bio__img">
+                    <img src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Site%20Docs%2Fbio.jpg?alt=media&token=eb81cf0b-0964-4646-a7ab-19da982edb62" alt="" class="bio__img">
                 </div>
                 <div class="bio-title">
                     <h3 class="bio-h3">Patricia Sims</h3>

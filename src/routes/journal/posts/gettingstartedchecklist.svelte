@@ -50,9 +50,9 @@
     <div class="row">
         <div class="col">
             <div class="media-controls">
-                <a href="/blogs/gettingstartedchecklist/GettingStartedChecklist.pdf" class="media-download" target="_blank">PDF Download</a>
+                <a href="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FGetting%20Started%20Checklist%2FGettingStartedChecklist.pdf?alt=media&token=2be155b3-b61d-4f13-9c1d-a0a6a9e3410b" class="media-download" target="_blank">PDF Download</a>
                 <audio controls class='media-audio'>
-                    <source src="/blogs/gettingstartedchecklist/Blog2Audio.mp3" type="audio/mpeg">
+                    <source src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FGetting%20Started%20Checklist%2FBlog2Audio.mp3?alt=media&token=bd0f83a6-7379-4f73-a0c5-6715749bab12" type="audio/mpeg">
                 </audio>
             </div>
         </div>
@@ -61,7 +61,7 @@
     <!-- Header Image -->
     <div class="row">
         <div class="col">
-            <img class="blog-image" src="/blogs/gettingstartedchecklist/HomeUnderConstruction.jpg" alt="Considering building on your lot in Houston or renovating your existing home? Then you must familiarize yourself with the parties involved. Here’s how... ">
+            <img class="blog-image" src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FGetting%20Started%20Checklist%2FHomeUnderConstruction.jpg?alt=media&token=28d0133e-035c-4693-a665-e73857ed1c41" alt="Considering building on your lot in Houston or renovating your existing home? Then you must familiarize yourself with the parties involved. Here’s how... ">
         </div>
     </div>
 
@@ -140,7 +140,7 @@
     <!-- Section 2B Image -->
     <div class="row">
         <div class="col">
-            <img class="blog-image" src="/blogs/gettingstartedchecklist/Foundation.JPG" alt="We take pride in connecting you to a reliable realtor who will help you find the best homes for sale in Houston, secure a good deal, and take care of all of the necessary paperwork.">
+            <img class="blog-image" src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FGetting%20Started%20Checklist%2FFoundation.JPG?alt=media&token=5bffbba9-5166-42a9-8103-f0744dd7647b" alt="We take pride in connecting you to a reliable realtor who will help you find the best homes for sale in Houston, secure a good deal, and take care of all of the necessary paperwork.">
         </div>
     </div>
 
@@ -202,7 +202,7 @@
     <!-- Section 2C Image -->
     <div class="row">
         <div class="col">
-            <img class="blog-image" src="/blogs/gettingstartedchecklist/PatriciaAndBob.jpg" alt="Planning to obtain a loan to cover the whole cost estimate  - or even a part of it - provided by a housebuilder in Texas? Start searching for financial institutions to consider here… ">
+            <img class="blog-image" src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FGetting%20Started%20Checklist%2FPatriciaAndBob.jpg?alt=media&token=87517940-70e7-4f44-8da1-f70ae5be4c51" alt="Planning to obtain a loan to cover the whole cost estimate  - or even a part of it - provided by a housebuilder in Texas? Start searching for financial institutions to consider here… ">
         </div>
     </div>
 
@@ -228,7 +228,7 @@
     <!-- Section 2C-2 Image -->
     <div class="row">
         <div class="col">
-            <img class="blog-image" src="/blogs/gettingstartedchecklist/HomeComplete.jpg" alt="Working together with the home architect in Houston and the custom home builder is the first step in the construction phase, Get connected here...">
+            <img class="blog-image" src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FGetting%20Started%20Checklist%2FHomeComplete.jpg?alt=media&token=32b9b8e9-5a50-4b9b-9820-097d790b9398" alt="Working together with the home architect in Houston and the custom home builder is the first step in the construction phase, Get connected here...">
         </div>
     </div>
 
@@ -345,7 +345,7 @@
     <!-- Image -->
     <div class="row">
         <div class="col">
-            <div class="blog-image-container-circle" style="background-image: url('/blogs/gettingstartedchecklist/Patricia.jpg')">
+            <div class="blog-image-container-circle" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FGetting%20Started%20Checklist%2FPatricia.jpg?alt=media&token=d7de14a9-c1c1-4d56-bf5d-255ee015f741')">
             </div>
         </div>
     </div>

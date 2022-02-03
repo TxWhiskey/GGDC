@@ -50,7 +50,7 @@
     <div class="row">
         <div class="col">
             <div class="media-controls">
-                <a href="/blogs/35questions/Builder Questionnaire Blog Post.pdf" class="media-download" target="_blank">PDF Download</a>
+                <a href="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2F35%20Questions%2FBuilder%20Questionnaire%20Blog%20Post.pdf?alt=media&token=72d647a9-ccaa-474d-96cd-1c435d2e9d71" class="media-download" target="_blank">PDF Download</a>
                 <!-- <audio controls class='media-audio'>
                     <source src="/blogs/gettingstartedchecklist/Blog2Audio.mp3" type="audio/mpeg">
                 </audio> -->
@@ -60,7 +60,7 @@
 
     <div class="row">
         <div class="col">
-            <img class="blog-image" src="/blogs/35questions/beams.jpg" alt="Home being built. Currently down to the studs.">
+            <img class="blog-image" src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2F35%20Questions%2Fbeams.jpg?alt=media&token=db92cf1e-a194-4e7b-8fa3-4bc0470c67b3" alt="Home being built. Currently down to the studs.">
         </div>
     </div>
 

@@ -31,24 +31,24 @@
     <a href="https://georgiagracecollaboration.hbportal.co/schedule/6163b3aee4a11230f3e34a24" target="_blank" rel=external class="cta-btn cta-btn-min">Hire With Confidence</a>
 
     <div class="gallery">
-        <div style="background-image: url('/images/home/kitchen-1.jpeg');" class="photo large"></div>
-        <div style="background-image: url('/images/home/closet.jpeg');" class="photo"></div>
-        <div style="background-image: url('/images/home/dining.jpeg');" class="photo "></div>
-        <div style="background-image: url('/images/home/elevation-construction.jpeg');" class="photo wide top"></div>
-        <div style="background-image: url('/images/home/architecture.jpeg');" class="photo tall bottom"></div>
-        <div style="background-image: url('/images/home/awning-construction.jpeg');" class="photo top"></div>
-        <div style="background-image: url('/images/home/formal-living.jpeg');" class="photo"></div>
-        <div style="background-image: url('/images/home/exterior-2.jpeg');" class="photo wide"></div>
-        <div style="background-image: url('/images/home/hall.jpeg');" class="photo"></div>
-        <div style="background-image: url('/images/home/kitchen-4.jpg');" class="photo"></div>
-        <div style="background-image: url('/images/home/entry.jpeg');" class="photo tall"></div>
-        <div style="background-image: url('/images/home/kitchen-2.jpeg');" class="photo"></div>
-        <div style="background-image: url('/images/home/beams.jpg');" class="photo tall"></div>
-        <div style="background-image: url('/images/home/exterior-construction-1.jpg');" class="photo"></div>
-        <div style="background-image: url('/images/home/exterior-construction-2.jpg');" class="photo"></div>
-        <div style="background-image: url('/images/home/exterior.jpg');" class="photo"></div>
-        <div style="background-image: url('/images/home/sink.jpg');" class="photo tall"></div>
-        <div style="background-image: url('/images/home/dream-house.jpg');" class="photo x-large"></div>
+        <div style="background-image: url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fkitchen-1.jpeg?alt=media&token=523429a7-b674-4de6-a568-6046df778291');" class="photo large"></div>
+        <div style="background-image: url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fcloset.jpeg?alt=media&token=346fbb7e-93a7-47f2-bc24-e828d2d24e07');" class="photo"></div>
+        <div style="background-image: url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fdining.jpeg?alt=media&token=729fecdc-2f53-4e98-bce8-9c18b47c3a89');" class="photo "></div>
+        <div style="background-image: url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Felevation-construction.jpeg?alt=media&token=467a9430-08c9-4791-a97a-948caffaee1c');" class="photo wide top"></div>
+        <div style="background-image: url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Farchitecture.jpeg?alt=media&token=64a2dec3-dec9-4470-aafa-c5289c27f86f');" class="photo tall bottom"></div>
+        <div style="background-image: url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fawning-construction.jpeg?alt=media&token=352929f2-4305-4c62-a81c-b4441bdd5caf');" class="photo top"></div>
+        <div style="background-image: url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fformal-living.jpeg?alt=media&token=8411a383-4586-453d-bda3-376e0f33754d');" class="photo"></div>
+        <div style="background-image: url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fexterior-2.jpeg?alt=media&token=91663c5d-a219-4b40-924a-f8a0e10c5ce6');" class="photo wide"></div>
+        <div style="background-image: url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fhall.jpeg?alt=media&token=1beffb57-93cf-4d8a-8a0d-3818d69138a4');" class="photo"></div>
+        <div style="background-image: url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fkitchen-4.jpg?alt=media&token=98ad8b59-b700-4b09-8185-7802d3a0fadb');" class="photo"></div>
+        <div style="background-image: url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fentry.jpeg?alt=media&token=097da73f-09f1-45cd-9ab6-4e0ebfec402c');" class="photo tall"></div>
+        <div style="background-image: url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fkitchen-2.jpeg?alt=media&token=4fae74b6-8cfa-4a1b-b811-3af1aa9aece4');" class="photo"></div>
+        <div style="background-image: url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fbeams.jpg?alt=media&token=21046034-40c2-4550-a139-9bd7a63ddffa');" class="photo tall"></div>
+        <div style="background-image: url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fexterior-construction-1.jpg?alt=media&token=f7a06170-88c3-4da1-8377-179e7d14543d');" class="photo"></div>
+        <div style="background-image: url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fexterior-construction-2.jpg?alt=media&token=4c083720-02df-4efb-b24f-e7796899f52b');" class="photo"></div>
+        <div style="background-image: url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fexterior.jpg?alt=media&token=e3944760-da87-40af-8728-3e9b3563d952');" class="photo"></div>
+        <div style="background-image: url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fsink.jpg?alt=media&token=b70fd1f4-91fe-459d-a18d-ce00c2e8c429');" class="photo tall"></div>
+        <div style="background-image: url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fdream-house.jpg?alt=media&token=7c4884ab-1151-4deb-b21a-d1df711cc68b');" class="photo x-large"></div>
     </div>
 
     <a href="#top" class="to-top">Back to Top</a>

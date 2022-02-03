@@ -17,7 +17,7 @@
 
     
     <section class="about-info">
-        <img src="/images/GG-Stacked.svg" alt="" class="gg-logo" style="margin-bottom: 1em;">
+        <img src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Site%20Docs%2FGG-Stacked.svg?alt=media&token=6b672a03-98df-457d-9e21-3a1b1b0db261" alt="" class="gg-logo" style="margin-bottom: 1em;">
         <p class="about bio-h4">
             Advocating for homeowners during the homebuilding process, and upscaling homebuilders to better serve my clients.
         </p>
@@ -30,7 +30,7 @@
             <div class="bio">
                 <div class="bio__header">
                     <div class="bio__media bio-media-alt">
-                        <img src="/images/home/exterior.jpg" alt="" class="bio__img">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fexterior.jpg?alt=media&token=e3944760-da87-40af-8728-3e9b3563d952" alt="" class="bio__img">
                     </div>
                     <div class="bio-title bio-title-alt">
                         <h3 class="bio-h3">Representing</h3>
@@ -76,7 +76,7 @@
                 </div>
             </div>
 
-            <a href="/documents/Services%20&%20Pricing%20Guide%20for%20Homeowners.pdf" class="cta-btn cta-btn-min" target="_blank">Homeowner Representation <br/>Services & Pricing Guide</a>
+            <a href="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Site%20Docs%2FServices%20%26%20Pricing%20Guide%20for%20Homeowners.pdf?alt=media&token=1d0ed77d-80d4-4d2a-a67a-bfa52ae08955" class="cta-btn cta-btn-min" target="_blank">Homeowner Representation <br/>Services & Pricing Guide</a>
 
         </div>
         
@@ -84,7 +84,7 @@
             <div class="bio">
                 <div class="bio__header">
                     <div class="bio__media">
-                        <img src="/images/home/stairs.jpeg" alt="" class="bio__img">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fstairs.jpeg?alt=media&token=079abc88-0014-487b-a018-f6a143d295e6" alt="" class="bio__img">
                     </div>
                     <div class="bio-title">
                         <h3 class="bio-h3">Upscaling</h3>
@@ -130,7 +130,7 @@
                 </div>
             </div>
         
-            <a href="/documents/Services & Pricing Guide for Builders.pdf" class="cta-btn cta-btn-min" target="_blank">Homebuilder Upscaling <br/>Services & Pricing Guide</a>
+            <a href="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Site%20Docs%2FServices%20%26%20Pricing%20Guide%20for%20Builders.pdf?alt=media&token=c712981a-de55-42b0-8cc4-888fc8e7e497" class="cta-btn cta-btn-min" target="_blank">Homebuilder Upscaling <br/>Services & Pricing Guide</a>
         
         </div>
     </section>
@@ -186,7 +186,7 @@
         align-items: center;
         justify-content: center;
         padding: 2em;
-        background:  url('/images/home/kitchen-2.jpeg'), rgba(72, 72, 72, 0.4);
+        background:  url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fkitchen-2.jpeg?alt=media&token=4fae74b6-8cfa-4a1b-b811-3af1aa9aece4'), rgba(72, 72, 72, 0.4);
         background-repeat: no-repeat;
         background-size: cover;
         background-blend-mode: multiply;

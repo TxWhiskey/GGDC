@@ -48,9 +48,9 @@
     <div class="row">
         <div class="col">
             <div class="media-controls">
-                <a href="/blogs/georgiagrace/GeorgiaGrace.pdf" class="media-download" target="_blank">PDF Download</a>
+                <a href="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FGeorgia%20Grace%2FGeorgiaGrace.pdf?alt=media&token=33ee35f9-0ddb-419f-9be1-b8fe6da1ec87" class="media-download" target="_blank">PDF Download</a>
                 <audio controls class='media-audio'>
-                    <source src="/blogs/georgiagrace/GeorgiaGrace.mp3" type="audio/mpeg">
+                    <source src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FGeorgia%20Grace%2FGeorgiaGrace.mp3?alt=media&token=1a711a36-c684-40d2-89fc-e1b263039baa" type="audio/mpeg">
                 </audio>
             </div>
         </div>
@@ -59,7 +59,7 @@
     <!-- Header Image -->
     <div class="row">
         <div class="col">
-            <img class="blog-image" src="/images/home/exterior-construction-2.jpg" alt="Georgia Grace Collaboration Triumphantly Connecting Homeowners With The Best Custom Home Builders in Houston, TX">
+            <img class="blog-image" src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fexterior-construction-2.jpg?alt=media&token=4c083720-02df-4efb-b24f-e7796899f52b" alt="Georgia Grace Collaboration Triumphantly Connecting Homeowners With The Best Custom Home Builders in Houston, TX">
         </div>
     </div>
 
@@ -94,7 +94,7 @@
     <!-- Image -->
     <div class="row">
         <div class="col">
-            <div class="blog-image-container-circle" style="background-image: url('/blogs/georgiagrace/PatriciaSims.jpg')">
+            <div class="blog-image-container-circle" style="background-image: url('https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FGeorgia%20Grace%2FPatriciaSims.jpg?alt=media&token=e75176bc-4d91-4523-a91a-d3b0b2c63ed5')">
             </div>
         </div>
     </div>
@@ -138,7 +138,7 @@
 
     <div class="row">
         <div class="col">
-            <img src="/images/home/exterior-construction-1.jpg" alt="Georgia Grace Collaboration is a progressive home building enterprise, passionate about empowering you by providing sound advice regarding your Custom Home Building in Texas." class="blog-image">
+            <img src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Gallery%2Fexterior-construction-1.jpg?alt=media&token=f7a06170-88c3-4da1-8377-179e7d14543d" alt="Georgia Grace Collaboration is a progressive home building enterprise, passionate about empowering you by providing sound advice regarding your Custom Home Building in Texas." class="blog-image">
         </div>
     </div>
 
@@ -208,7 +208,7 @@
     <div class="row">
         <div class="col">
             
-            <img src="/blogs/georgiagrace/Piedmont.jpg" alt="Patricia Sims - Home Building Consultant in Houston is pictured with leading interior designer Farrah Gandhi outside her custom-built home. " class="blog-image">
+            <img src="https://firebasestorage.googleapis.com/v0/b/georgia-grace-design-collab.appspot.com/o/Posts%2FGeorgia%20Grace%2FPiedmont.jpg?alt=media&token=b70896f2-0b87-4aa2-a82d-0416b251463a" alt="Patricia Sims - Home Building Consultant in Houston is pictured with leading interior designer Farrah Gandhi outside her custom-built home. " class="blog-image">
 
         </div>
     </div>
