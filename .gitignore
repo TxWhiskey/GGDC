@@ -8,3 +8,5 @@ node_modules
 .env*
 /.vercel_build_output
 /.firebase
+/src/routes/bite-sized
+/src/lib/bite-sized
